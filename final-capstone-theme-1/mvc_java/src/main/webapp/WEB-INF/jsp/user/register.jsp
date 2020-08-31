@@ -47,7 +47,7 @@
                     <form:errors path="confirmPassword" cssClass="error"/>
                   </div>
                   <div class="col-sm-6">
-                  <form:select id="role" name="role" path="role" required="true">
+                  <form:select class="form-control form-control-user" id="role" name="role" path="role" placeholder="Select User Type" required="true">
                     <option value="brewer">Brewer</option>
                     <option value="beerLover">Beer Lover</option>
                   </form:select>
