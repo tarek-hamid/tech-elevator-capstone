@@ -1,0 +1,60 @@
+
+.error {
+    color:red;
+    font-size: 0.875em;
+}
+
+input:invalid {
+    border: 2px solid red;
+}
+
+input:invalid:required {
+    background-image: linear-gradient(to right, white, lightgrey);
+}
+
+input:valid {
+    border: 2px solid green;
+}
+
+.bg-register-image {
+    background: url("/img/kenyaLogPic.jpg");
+}
+
+/*
+    Start - Accordion Example Styles
+ */
+
+.input-group {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.panel {
+    margin-top: 10px;
+    background-color: rgba(255, 255, 255, .9)!important;
+    border: solid 2px #ccc;
+}
+
+.panel-heading {
+    background-color: #8AFFDF!important;
+}
+
+#accordion_search_bar {
+    border: solid 2px #ccc;
+}
+
+.btn-default {
+    border: solid 1.5px #ccc;
+}
+
+.fa-search {
+    font-size: 1.3em;
+}
+
+.fa-paw {
+    font-size: 1.4em;
+    color: #6B7F7A;
+}
+/*
+    End - Accordion Example Styles
+ */

@@ -1,0 +1,114 @@
+
+/*
+    Start - Custom Form Area
+    Use @supports for progressive enhancement
+ */
+.form-container {
+    color: #333;
+    background-color: white;
+}
+
+.form-container .error {
+    color:red;
+    font-size: 0.875em;
+}
+
+.form-container input:invalid textarea:valid {
+    border: 2px solid red;
+}
+
+.form-container input:invalid:required textarea:invalid:required {
+    background-image: linear-gradient(to right, white, lightgrey);
+}
+
+.form-container input:valid textarea:valid {
+    border: 2px solid green;
+}
+
+.form-container, input, textarea, select, option, button, label {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 100%;
+}
+
+.form-container fieldset {
+    max-width: 40em;
+    padding: 4px;
+    margin: 2em auto;
+    border: 0 none;
+    background-color: #8AFFDF;
+}
+
+.form-container legend {
+    font-size: 1.2em;
+    width: 100%;
+    border: 1px solid #99c;
+    background-color: #8AFFDF;
+}
+
+.form-container input, output, textarea, select, button {
+    box-sizing: border-box;
+    padding: 0.2em 0.4em;
+    margin: 0.2em 0;
+}
+
+.form-container button {
+     max-width: 9em;
+     padding: 0.2em 2em;
+     background-color: #ddd;
+     box-shadow: 0 2px 0 #bbb;
+     cursor: pointer;
+ }
+
+.form-container label {
+    box-sizing: border-box;
+    user-select: none;
+    cursor: pointer;
+}
+
+.form-container input:focus + label, textarea:focus + label, select:focus + label {
+    color: #2e59d9;
+}
+
+.form-container input:checked + label {
+    font-weight: bold;
+}
+
+/* fallback 30%/70% float layout */
+.form-container input, output, textarea, select, button {
+    clear: both;
+    float: right;
+    width: 70%;
+}
+
+.form-container label {
+    float: left;
+    width: 30%;
+    text-align: right;
+    padding: 0.25em 1em 0 0;
+}
+
+@supports (display: grid) {
+    .formgrid {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        grid-gap: 0.3em 0.6em;
+        grid-auto-flow: dense;
+        align-items: center;
+    }
+
+    .formgrid label {
+        grid-column: 1;
+        width: auto;
+        padding: 0;
+        margin: 0;
+    }
+
+    .formgrid input, output, textarea, select, button {
+        grid-column: 2 / 3;
+        width: auto;
+        margin: 0;
+    }
+}
+/*
+    End - Custom Form Area
+ */
