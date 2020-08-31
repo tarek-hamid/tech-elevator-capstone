@@ -13,7 +13,7 @@ public class HomeController {
 	@RequestMapping(path="/", method=RequestMethod.GET)
 	public String displayHomePage() {
 
-		return "index";
+		return "user/login";
 	}
 
 	@RequestMapping(path="/error", method=RequestMethod.GET)
