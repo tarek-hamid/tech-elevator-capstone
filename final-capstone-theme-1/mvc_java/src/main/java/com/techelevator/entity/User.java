@@ -36,8 +36,7 @@ public class User {
     @NotBlank(message = "Last Name is required")
     private String lastName;
 
-    public User(){
-    	this.role = CUSTOMER_ROLE;
+   public User(){
 	}
 
     public Long getId() {

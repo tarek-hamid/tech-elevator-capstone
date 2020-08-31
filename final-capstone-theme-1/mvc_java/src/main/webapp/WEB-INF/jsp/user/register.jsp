@@ -46,24 +46,12 @@
                                 path="confirmPassword" name="confirmPassword" id="confirmPassword" placeholder="Repeat Password"/>
                     <form:errors path="confirmPassword" cssClass="error"/>
                   </div>
-                  <div class="mb-2">
-                    <code>.btn-circle</code>
+                  <div class="col-sm-6">
+                  <form:select id="role" name="role" path="role" required="true">
+                    <option value="brewer">Brewer</option>
+                    <option value="beerLover">Beer Lover</option>
+                  </form:select>
                   </div>
-                  <a href="#" class="btn btn-primary btn-circle">
-                    <i class="fab fa-facebook-f">b</i>
-                  </a>
-                  <a href="#" class="btn btn-success btn-circle">
-                    <i class="fas fa-check"></i>
-                  </a>
-                  <a href="#" class="btn btn-info btn-circle">
-                    <i class="fas fa-info-circle"></i>
-                  </a>
-                  <a href="#" class="btn btn-warning btn-circle">
-                    <i class="fas fa-exclamation-triangle"></i>
-                  </a>
-                  <a href="#" class="btn btn-danger btn-circle">
-                    <i class="fas fa-trash"></i>
-                  </a>
                 </div>
                 <button type="submit" class="btn btn-primary btn-user btn-block">
                   Register Account
