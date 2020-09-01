@@ -10,7 +10,7 @@
       <div class="card-body p-0">
         <!-- Nested Row within Card Body -->
         <div class="row">
-          <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
+          <div class="col-lg-5 d-none d-lg-block bg-register-image "></div>
           <div class="col-lg-7">
             <div class="p-5">
               <div class="text-center">
@@ -46,27 +46,29 @@
                                 path="confirmPassword" name="confirmPassword" id="confirmPassword" placeholder="Repeat Password"/>
                     <form:errors path="confirmPassword" cssClass="error"/>
                   </div>
-                  <div class="col-sm-6">
-                  <form:select class="form-control" id="role" name="role" path="role" required="true">
-                    <option value="brewer">Brewer</option>
-                    <option value="beerLover">Beer Lover</option>
-                  </form:select>
-                  </div>
                 </div>
+                <div class="form-group">
+                      <form:select path="role" class="custom-select" required = "true">
+                            <option value="">Select account type</option>
+                            <option value="1">Beer Lover</option>
+                            <option value="2">Brewery</option>
+                      </form:select><br>
+                    <form:errors path="role" cssClass="error"/>
+                </div><br>
                 <button type="submit" class="btn btn-primary btn-user btn-block">
                   Register Account
                 </button>
-                <br/><hr/>
-                <a href="#" class="btn btn-google btn-user btn-block">
+<%--                <a href="#" class="btn btn-google btn-user btn-block">
                   <c:url var="googleImageUrl" value="/img/googleRed.png" />
                   <img src="${googleImageUrl}" /> &nbsp;Register with Google
                 </a>
                 <a href="#" class="btn btn-facebook btn-user btn-block">
                   <c:url var="fbImageUrl" value="/img/facebook.png" />
                   <img src="${fbImageUrl}" /> &nbsp;Register with Facebook
-                </a>
+                </a>--%>
               </form:form>
               <hr>
+              <br>
               <div class="text-center">
                 <a class="small" href="/forgot-password">Forgot Password?</a>
               </div>

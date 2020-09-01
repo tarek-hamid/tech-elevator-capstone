@@ -41,14 +41,14 @@
                       Login
                     </button>
                     <br/><hr/>
-                    <a href="#" class="btn btn-google btn-user btn-block">
+                    <%--<a href="#" class="btn btn-google btn-user btn-block">
                       <c:url var="googleImageUrl" value="/img/googleRed.png" />
                       <img src="${googleImageUrl}" /> &nbsp;Register with Google
                     </a>
                     <a href="#" class="btn btn-facebook btn-user btn-block">
                       <c:url var="fbImageUrl" value="/img/facebook.png" />
                       <img src="${fbImageUrl}" /> &nbsp;Register with Facebook
-                    </a>
+                    </a>--%>
                   </form>
                   <hr>
                   <div class="text-center">

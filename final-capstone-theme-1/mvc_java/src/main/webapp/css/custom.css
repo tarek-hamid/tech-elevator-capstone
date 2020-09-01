@@ -108,6 +108,14 @@
         width: auto;
         margin: 0;
     }
+
+/*    .role {
+        display: flex;
+        border-radius: 15px;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+    }*/
 }
 /*
     End - Custom Form Area

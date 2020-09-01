@@ -17,7 +17,16 @@ input:valid {
 }
 
 .bg-register-image {
-    background: url("/img/login.jpg");
+    background: url("/img/BeerLover.png") center;
+}
+
+.bg-login-image {
+    background: url("/img/beer-glasses.jpg") center;
+}
+
+.bg-password-image {
+    background: url("/img/Forgotpassword.png") center;
+    background-size: cover;
 }
 
 /*
