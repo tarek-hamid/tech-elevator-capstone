@@ -6,18 +6,26 @@ import java.util.HashMap;
 
 public class Brewery {
 
-    private User user;
+    private int userId;
     private String name;
-    private HashMap<String, LocalTime> hoursOfOperation;
+    private int openFrom;
+    private int openTo;
     private String phoneNumber;
     private String website;
     private String email;
     private String address;
     private String history;
     private Boolean active;
-    // private ArrayList<Beer> beerList;
 
     public Brewery() {
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     public String getName() {
@@ -28,12 +36,20 @@ public class Brewery {
         this.name = name;
     }
 
-    public HashMap<String, LocalTime> getHoursOfOperation() {
-        return hoursOfOperation;
+    public int getOpenFrom() {
+        return openFrom;
     }
 
-    public void setHoursOfOperation(HashMap<String, LocalTime> hoursOfOperation) {
-        this.hoursOfOperation = hoursOfOperation;
+    public void setOpenFrom(int openFrom) {
+        this.openFrom = openFrom;
+    }
+
+    public int getOpenTo() {
+        return openTo;
+    }
+
+    public void setOpenTo(int openTo) {
+        this.openTo = openTo;
     }
 
     public String getPhoneNumber() {
@@ -83,6 +99,4 @@ public class Brewery {
     public void setActive(Boolean active) {
         this.active = active;
     }
-
-
 }
