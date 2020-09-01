@@ -26,4 +26,5 @@ public class JDBCBreweryDAO implements BreweryDAO{
                 brewery.getPhoneNumber(), brewery.getWebsite(), brewery.getEmail(),
                 brewery.getAddress(), brewery.getHistory(), brewery.getActive());
     }
+
 }

@@ -1,23 +1,39 @@
 package com.techelevator.entity;
 
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotBlank;
+
+import javax.validation.constraints.*;
 import java.time.LocalTime;
-import java.util.ArrayList;
-import java.util.HashMap;
 
 public class Brewery {
 
+    @NotNull
     private int userId;
+
+    @NotBlank(message = "Brewery needs a name")
     private String name;
-    private int openFrom;
-    private int openTo;
+
+    //@DateTimeFormat(pattern = "hh:mm a")
+    private LocalTime openFrom;
+
+//    @Min(value = 0, message = "Must be 4 digits (military time)")
+//    @Max(value = 2359, message = "Must be 4 digits (military time)")
+    private LocalTime openTo;
+
+    @Pattern(regexp = "^\\(\\d{3}\\)\\d{3}-\\d{4}$", message = "Please enter a valid phone number in the correct format")
     private String phoneNumber;
+
     private String website;
+
+    @Email(message = "Must be a valid email address")
     private String email;
     private String address;
     private String history;
     private Boolean active;
 
     public Brewery() {
+        this.phoneNumber = null;
     }
 
     public int getUserId() {
@@ -36,19 +52,19 @@ public class Brewery {
         this.name = name;
     }
 
-    public int getOpenFrom() {
+    public LocalTime getOpenFrom() {
         return openFrom;
     }
 
-    public void setOpenFrom(int openFrom) {
+    public void setOpenFrom(LocalTime openFrom) {
         this.openFrom = openFrom;
     }
 
-    public int getOpenTo() {
+    public LocalTime getOpenTo() {
         return openTo;
     }
 
-    public void setOpenTo(int openTo) {
+    public void setOpenTo(LocalTime openTo) {
         this.openTo = openTo;
     }
 

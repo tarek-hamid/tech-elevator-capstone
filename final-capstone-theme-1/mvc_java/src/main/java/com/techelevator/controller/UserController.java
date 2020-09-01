@@ -113,14 +113,12 @@ public class UserController {
 			return "redirect:/addBrewery";
 		}
 		try {
-			//breweryDAO.saveBrewery(brewery);
-			return "redirect:/confirmation";
-
+			breweryDAO.saveBrewery(brewery);
 		} catch (Exception exc){
 			// good place to log
 			return "redirect:/error";
 		}
-		//return "redirect:/";
+		return "redirect:/confirmation";
 	}
 
 

@@ -1,4 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <c:import url="/WEB-INF/jsp/common/header.jsp" />
 
@@ -20,32 +21,53 @@
                                 <div class="text-center">
                                     <h1 class="h4 text-gray-900 mb-4">Add Brewery</h1>
                                 </div>
-                                <form class="user" method="POST" action="/addBrewery">
+                                <form:form class="user" method="POST" action="/addBrewery" modelAttribute="brewery">
                                     <input type="hidden" name="destination" value="${param.destination}"/>
                                     <input type="hidden" name="CSRF_TOKEN" value="${CSRF_TOKEN}"/>
                                     <div class="form-group">
-                                        <input type="name" class="form-control form-control-user"
+                                        <input type="text" class="form-control form-control-user"
+                                               name="userId" id="userId" aria-describedby="userIdHelp" placeholder="user id..">
+                                        <form:errors path="userId" />
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control form-control-user"
                                                name="name" id="name" aria-describedby="nameHelp" placeholder="Enter Name Of Brewery...">
+                                        <form:errors path="name" cssClass="error"/>
                                     </div>
                                     <div class="form-group">
-                                        <input type="phoneNumber" class="form-control form-control-user"
-                                               name="phoneNumber" id="phoneNumber" placeholder="Phone Number">
+                                        <input type="datetime-local" class="form-control form-control-user"
+                                               name="openFrom" id="openFrom" placeholder="Open From">
+                                        <form:errors path="openFrom" cssClass="error"/>
                                     </div>
                                     <div class="form-group">
-                                        <input type="website" class="form-control form-control-user"
+                                        <input type="datetime-local" class="form-control form-control-user"
+                                               name="openTo" id="openTo" placeholder="Open To">
+                                        <form:errors path="openTo" cssClass="error"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control form-control-user"
+                                               name="phoneNumber" id="phoneNumber" placeholder="Phone Number" value="(000)000-0000">
+                                        <form:errors path="phoneNumber" cssClass="error"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control form-control-user"
                                                name="website" id="website" placeholder="Website">
+                                        <form:errors path="website" cssClass="error"/>
                                     </div>
                                     <div class="form-group">
                                         <input type="email" class="form-control form-control-user"
                                                name="email" id="email" placeholder="Email">
+                                        <form:errors path="email" cssClass="error"/>
                                     </div>
                                     <div class="form-group">
-                                        <input type="address" class="form-control form-control-user"
+                                        <input type="text" class="form-control form-control-user"
                                                name="address" id="address" placeholder="Address">
+                                        <<form:errors path="address" cssClass="error"/>
                                     </div>
                                     <div class="form-group">
-                                        <input type="history" class="form-control form-control-user"
+                                        <input type="text" class="form-control form-control-user"
                                                name="history" id="history" placeholder="History">
+                                        <form:errors path="history" cssClass="error"/>
                                     </div>
                                     <div class="form-group">
                                         <div class="custom-control custom-checkbox small">
@@ -54,9 +76,9 @@
                                         </div>
                                     </div>
                                     <button type="submit" class="btn btn-primary btn-user btn-block">
-                                        Login
+                                        Add Brewery
                                     </button>
-                                </form>
+                                </form:form>
                                 <hr>
                             </div>
                         </div>
