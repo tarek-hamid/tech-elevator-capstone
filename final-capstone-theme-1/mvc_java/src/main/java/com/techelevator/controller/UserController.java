@@ -3,6 +3,8 @@ package com.techelevator.controller;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
+import com.techelevator.dao.BreweryDAO;
+import com.techelevator.entity.Brewery;
 import com.techelevator.security.AuthorizationFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,11 +23,12 @@ import com.techelevator.dao.UserDAO;
 public class UserController {
 
 	private UserDAO userDAO;
+	private BreweryDAO breweryDAO;
 
 	@Autowired
-	public UserController(UserDAO userDAO) {
-
+	public UserController(UserDAO userDAO, BreweryDAO breweryDAO) {
 		this.userDAO = userDAO;
+		this.breweryDAO = breweryDAO;
 	}
 
 	@RequestMapping(path="/register", method=RequestMethod.GET)
@@ -85,6 +88,30 @@ public class UserController {
 	@RequestMapping(path="/forgot-password", method=RequestMethod.GET)
 	public String displayForgotPassword() {
 		return "user/forgot-password";
+	}
+
+
+
+	@RequestMapping(path="/addBrewery", method=RequestMethod.GET)
+	public String displayAddBreweryForm() {
+		return "user/addBrewery";
+	}
+
+	@RequestMapping(path="/addBrewery", method=RequestMethod.POST)
+	public String createBrewery(@Valid @ModelAttribute Brewery brewery, BindingResult result, RedirectAttributes flash) {
+		if(result.hasErrors()) {
+			flash.addFlashAttribute("brewery", brewery);
+			flash.addFlashAttribute(BindingResult.MODEL_KEY_PREFIX + "brewery", result);
+			return "redirect:/addBrewery";
+		}
+		try {
+			//breweryDAO.saveBrewery(brewery);
+			return "redirect:/";
+		} catch (Exception exc){
+			// good place to log
+			return "redirect:/error";
+		}
+		//return "redirect:/";
 	}
 
 

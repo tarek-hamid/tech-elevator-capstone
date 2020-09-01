@@ -63,6 +63,12 @@
 			Site Access
 		</div>
 
+		<li class="nav-item">
+			<a class="nav-link" href="/addBrewery">
+				<i class="fas fa-fw fa-table"></i>
+				<span>Add Brewery</span></a>
+		</li>
+
 		<!-- Nav Item - Pages Collapse Menu -->
 		<li class="nav-item">
 			<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
