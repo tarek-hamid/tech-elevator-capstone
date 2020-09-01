@@ -31,6 +31,14 @@ public class UserController {
 		this.breweryDAO = breweryDAO;
 	}
 
+	@RequestMapping(path="/confirmation", method=RequestMethod.GET)
+	public String displayConfirmationPage(ModelMap modelHolder) {
+		if( ! modelHolder.containsAttribute("user")) {
+			modelHolder.addAttribute("user", new User());
+		}
+		return "user/confirmation";
+	}
+
 	@RequestMapping(path="/register", method=RequestMethod.GET)
 	public String displayRegisterPage(ModelMap modelHolder) {
 		if( ! modelHolder.containsAttribute("user")) {
@@ -106,7 +114,8 @@ public class UserController {
 		}
 		try {
 			//breweryDAO.saveBrewery(brewery);
-			return "redirect:/";
+			return "redirect:/confirmation";
+
 		} catch (Exception exc){
 			// good place to log
 			return "redirect:/error";
