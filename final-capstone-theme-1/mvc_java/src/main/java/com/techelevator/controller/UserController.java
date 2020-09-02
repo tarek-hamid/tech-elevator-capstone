@@ -79,10 +79,10 @@ public class UserController {
 			if(destination != null && ! destination.isEmpty()) {
 				return "redirect:" + destination;
 			} else {
-				return "redirect:/";
+				return "redirect:/user/dashboard";
 			}
 		} else {
-			return "redirect:/login";
+			return "redirect:/user/login";
 		}
 	}
 

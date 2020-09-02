@@ -50,8 +50,8 @@
                 <div class="form-group">
                       <form:select path="role" class="custom-select" required = "true">
                             <option value="">Select account type</option>
-                            <option value="1">Beer Lover</option>
-                            <option value="2">Brewery</option>
+                            <option value="BeerLover">Beer Lover</option>
+                            <option value="Brewer">Brewer</option>
                       </form:select><br>
                     <form:errors path="role" cssClass="error"/>
                 </div><br>
