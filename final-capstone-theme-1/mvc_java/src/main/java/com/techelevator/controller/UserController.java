@@ -115,6 +115,7 @@ public class UserController {
 		try {
 			breweryDAO.saveBrewery(brewery);
 		} catch (Exception exc){
+			System.out.println(exc.getMessage());
 			// good place to log
 			return "redirect:/error";
 		}

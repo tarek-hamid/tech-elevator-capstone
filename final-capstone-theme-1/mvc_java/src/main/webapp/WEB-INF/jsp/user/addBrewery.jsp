@@ -35,12 +35,12 @@
                                         <form:errors path="name" cssClass="error"/>
                                     </div>
                                     <div class="form-group">
-                                        <input type="datetime-local" class="form-control form-control-user"
+                                        <input type="time" class="form-control form-control-user"
                                                name="openFrom" id="openFrom" placeholder="Open From">
                                         <form:errors path="openFrom" cssClass="error"/>
                                     </div>
                                     <div class="form-group">
-                                        <input type="datetime-local" class="form-control form-control-user"
+                                        <input type="time" class="form-control form-control-user"
                                                name="openTo" id="openTo" placeholder="Open To">
                                         <form:errors path="openTo" cssClass="error"/>
                                     </div>
