@@ -6,4 +6,6 @@ public interface BreweryDAO {
 
     public void saveBrewery(Brewery brewery);
 
+    public void getAllBreweries();
+
 }
