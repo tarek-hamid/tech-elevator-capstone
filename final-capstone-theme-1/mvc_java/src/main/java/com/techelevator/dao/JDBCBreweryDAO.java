@@ -20,7 +20,7 @@ public class JDBCBreweryDAO implements BreweryDAO{
 
     @Override
     public void saveBrewery(Brewery brewery) {
-        jdbcTemplate.update("INSERT INTO brewery(user_id, brewery_name, open_from, open_to, phone_number, website, email, address, history, active) " +
+        jdbcTemplate.update("INSERT INTO brewery(user_id, brewery_name, open_from, open_until, phone_number, website, email, address, history, active) " +
                         "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
                 brewery.getUserId(), brewery.getName(), brewery.getOpenFrom(), brewery.getOpenTo(),
                 brewery.getPhoneNumber(), brewery.getWebsite(), brewery.getEmail(),

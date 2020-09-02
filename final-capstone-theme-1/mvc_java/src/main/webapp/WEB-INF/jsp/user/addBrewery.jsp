@@ -14,7 +14,7 @@
             <div class="card o-hidden border-0 shadow-lg my-5">
                 <div class="card-body p-0">
                     <!-- Nested Row within Card Body -->
-                    <div class="row">
+                    <div class="row justify-content-center">
                         <!--<div class="col-lg-6 d-none d-lg-block bg-login-image"></div>-->
                         <div class="col-lg-6">
                             <div class="p-5">
@@ -26,12 +26,12 @@
                                     <input type="hidden" name="CSRF_TOKEN" value="${CSRF_TOKEN}"/>
                                     <div class="form-group">
                                         <input type="text" class="form-control form-control-user"
-                                               name="userId" id="userId" aria-describedby="userIdHelp" placeholder="user id..">
+                                               name="userId" id="userId" aria-describedby="userIdHelp" placeholder="User ID">
                                         <form:errors path="userId" />
                                     </div>
                                     <div class="form-group">
                                         <input type="text" class="form-control form-control-user"
-                                               name="name" id="name" aria-describedby="nameHelp" placeholder="Enter Name Of Brewery...">
+                                               name="name" id="name" aria-describedby="nameHelp" placeholder="Brewery Name">
                                         <form:errors path="name" cssClass="error"/>
                                     </div>
                                     <div class="form-group">
@@ -62,7 +62,7 @@
                                     <div class="form-group">
                                         <input type="text" class="form-control form-control-user"
                                                name="address" id="address" placeholder="Address">
-                                        <<form:errors path="address" cssClass="error"/>
+                                        <form:errors path="address" cssClass="error"/>
                                     </div>
                                     <div class="form-group">
                                         <input type="text" class="form-control form-control-user"
