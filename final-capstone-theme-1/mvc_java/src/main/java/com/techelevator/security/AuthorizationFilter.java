@@ -34,17 +34,18 @@ public class AuthorizationFilter implements Filter {
 
 		String urlRequested = httpRequest.getRequestURI();
 		if(
-			urlRequested.contains("/admin/") ||
-			urlRequested.contains("/restricted/") ||
+//			urlRequested.contains("/admin/") ||
+//			urlRequested.contains("/restricted/") ||
 			urlRequested.contains("/user/")
 			// Put more URLs here to lock down
 		) {
-
 			if(sessionUser == null) {
 				redirectToLoginPage(httpRequest, httpResponse);
+			} else {
+				if (!sessionUser.getRole().equals("BeerLover")) {
+					httpResponse.sendError(403);
+				}
 			}
-				//httpResponse.sendError(403);
-			
 		}
 		chain.doFilter(request, response);
 	}
