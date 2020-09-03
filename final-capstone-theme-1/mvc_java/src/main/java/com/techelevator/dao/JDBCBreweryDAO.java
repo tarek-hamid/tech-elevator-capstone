@@ -58,8 +58,11 @@ public class JDBCBreweryDAO implements BreweryDAO{
         Brewery brew = new Brewery();
         brew.setUserId(brewery.getInt("user_id"));
         brew.setName(brewery.getString("brewery_name"));
-        brew.setOpenFrom(LocalTime.parse(brewery.getString("open_from")));
-        brew.setOpenTo(LocalTime.parse(brewery.getString("open_until")));
+        try {
+            brew.setOpenFrom(LocalTime.parse(brewery.getString("open_from")));
+            brew.setOpenTo(LocalTime.parse(brewery.getString("open_until")));
+        } catch (Exception e){
+        }
         brew.setPhoneNumber(brewery.getString("phone_number"));
         brew.setWebsite(brewery.getString("website"));
         brew.setEmail(brewery.getString("email"));
