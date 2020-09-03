@@ -10,4 +10,6 @@ public interface BreweryDAO {
 
     public List<Brewery> getAllBreweries();
 
+    public void updateBrewery(Brewery brewery);
+
 }

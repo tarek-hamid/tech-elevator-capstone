@@ -19,6 +19,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.techelevator.entity.User;
 import com.techelevator.dao.UserDAO;
 
+import java.util.List;
+
 @Controller
 public class UserController {
 
@@ -121,6 +123,37 @@ public class UserController {
 		}
 		return "redirect:/confirmation";
 	}
+
+	@RequestMapping(path="/breweryList", method=RequestMethod.GET)
+	public String displayBreweryList(ModelMap modelHolder) {
+		List<Brewery> breweries = breweryDAO.getAllBreweries();
+		modelHolder.put("breweries", breweries);
+		return "user/breweriesTable";
+	}
+
+	@RequestMapping(path="/updateBrewery", method=RequestMethod.GET)
+	public String displayUpdateBreweryForm() {
+		return "user/updateBrewery";
+	}
+
+	@RequestMapping(path="/updateBrewery", method=RequestMethod.POST)
+	public String updateBrewery(@Valid @ModelAttribute Brewery brewery, BindingResult result, RedirectAttributes flash) {
+		if(result.hasErrors()) {
+			flash.addFlashAttribute("brewery", brewery);
+			flash.addFlashAttribute(BindingResult.MODEL_KEY_PREFIX + "brewery", result);
+			return "redirect:/updateBrewery";
+		}
+		try {
+			breweryDAO.updateBrewery(brewery);
+		} catch (Exception exc){
+			System.out.println(exc.getMessage());
+			// good place to log
+			return "redirect:/error";
+		}
+		return "redirect:/confirmation";
+	}
+
+
 
 
 }

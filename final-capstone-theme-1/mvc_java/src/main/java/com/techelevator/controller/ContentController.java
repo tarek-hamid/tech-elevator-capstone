@@ -1,20 +1,31 @@
 package com.techelevator.controller;
 
+import com.techelevator.dao.BreweryDAO;
+import com.techelevator.entity.Brewery;
 import com.techelevator.util.EmployeeDataTable;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import java.util.List;
+
 @Controller
 @RequestMapping(path="/user")
 public class ContentController {
 
-	public ContentController(){
+	private BreweryDAO breweryDAO;
+
+	@Autowired
+	public ContentController(BreweryDAO breweryDAO){
+		this.breweryDAO = breweryDAO;
 	}
 
 	@RequestMapping(path="/dashboard", method=RequestMethod.GET)
-	public String displayDashboard() {
+	public String displayDashboard(ModelMap modelHolder) {
+		List<Brewery> breweries = breweryDAO.getAllBreweries();
+		modelHolder.put("breweries", breweries);
 		return "user/dashboard";
 	}
 

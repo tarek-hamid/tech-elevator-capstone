@@ -10,6 +10,9 @@ import java.time.LocalTime;
 
 public class Brewery {
 
+
+    private long breweryId;
+
     @NotNull
     private int userId;
 
@@ -117,5 +120,13 @@ public class Brewery {
 
     public void setActive(Boolean active) {
         this.active = active;
+    }
+
+    public long getBreweryId() {
+        return breweryId;
+    }
+
+    public void setBreweryId(long breweryId) {
+        this.breweryId = breweryId;
     }
 }

@@ -69,6 +69,18 @@
 				<span>Add Brewery</span></a>
 		</li>
 
+		<li class="nav-item">
+			<a class="nav-link" href="/breweryList">
+				<i class="fas fa-fw fa-table"></i>
+				<span>Brewery List</span></a>
+		</li>
+
+		<li class="nav-item">
+			<a class="nav-link" href="/updateBrewery">
+				<i class="fas fa-fw fa-table"></i>
+				<span>Update Brewery</span></a>
+		</li>
+
 		<!-- Nav Item - Pages Collapse Menu -->
 		<li class="nav-item">
 			<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
