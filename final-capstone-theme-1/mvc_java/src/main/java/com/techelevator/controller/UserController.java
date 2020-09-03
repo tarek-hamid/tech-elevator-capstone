@@ -26,13 +26,11 @@ public class UserController {
 
 	private UserDAO userDAO;
 	private BreweryDAO breweryDAO;
-	private BeerDAO beerDAO;
 
 	@Autowired
-	public UserController(UserDAO userDAO, BreweryDAO breweryDAO, BeerDAO beerDAO) {
+	public UserController(UserDAO userDAO, BreweryDAO breweryDAO) {
 		this.userDAO = userDAO;
 		this.breweryDAO = breweryDAO;
-		this.beerDAO = beerDAO;
 	}
 
 	@RequestMapping(path="/confirmation", method=RequestMethod.GET)
@@ -149,27 +147,6 @@ public class UserController {
 			breweryDAO.updateBrewery(brewery);
 		} catch (Exception exc){
 			System.out.println(exc.getMessage());
-			// good place to log
-			return "redirect:/error";
-		}
-		return "redirect:/confirmation";
-	}
-
-	@RequestMapping(path="/addBeer", method=RequestMethod.GET)
-	public String displayAddBeerForm() {
-		return "user/addBeer";
-	}
-
-	@RequestMapping(path="/addBeer", method=RequestMethod.POST)
-	public String createBeer(@Valid @ModelAttribute Beer beer, BindingResult result, RedirectAttributes flash) {
-		if(result.hasErrors()) {
-			flash.addFlashAttribute("beer", beer);
-			flash.addFlashAttribute(BindingResult.MODEL_KEY_PREFIX + "beer", result);
-			return "redirect:/addBeer";
-		}
-		try {
-			beerDAO.addBeer(beer, 1L);
-		} catch (Exception exc){
 			// good place to log
 			return "redirect:/error";
 		}
