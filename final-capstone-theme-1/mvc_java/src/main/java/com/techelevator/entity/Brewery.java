@@ -2,11 +2,16 @@ package com.techelevator.entity;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.*;
+import java.sql.Time;
 import java.time.LocalTime;
 
 public class Brewery {
+
+
+    private long breweryId;
 
     @NotNull
     private int userId;
@@ -14,11 +19,12 @@ public class Brewery {
     @NotBlank(message = "Brewery needs a name")
     private String name;
 
-    //@DateTimeFormat(pattern = "hh:mm a")
+    @DateTimeFormat(pattern = "HH:mm")
     private LocalTime openFrom;
 
 //    @Min(value = 0, message = "Must be 4 digits (military time)")
 //    @Max(value = 2359, message = "Must be 4 digits (military time)")
+    @DateTimeFormat(pattern = "HH:mm")
     private LocalTime openTo;
 
     @Pattern(regexp = "^\\(\\d{3}\\)\\d{3}-\\d{4}$", message = "Please enter a valid phone number in the correct format")
@@ -114,5 +120,13 @@ public class Brewery {
 
     public void setActive(Boolean active) {
         this.active = active;
+    }
+
+    public long getBreweryId() {
+        return breweryId;
+    }
+
+    public void setBreweryId(long breweryId) {
+        this.breweryId = breweryId;
     }
 }

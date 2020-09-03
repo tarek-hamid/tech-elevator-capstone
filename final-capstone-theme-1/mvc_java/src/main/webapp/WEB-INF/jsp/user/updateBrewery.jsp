@@ -19,16 +19,15 @@
                         <div class="col-lg-6">
                             <div class="p-5">
                                 <div class="text-center">
-                                    <h1 class="h4 text-gray-900 mb-4">Add Brewery</h1>
+                                    <h1 class="h4 text-gray-900 mb-4">Update Brewery</h1>
                                 </div>
-                                <form:form class="user" method="POST" action="/addBrewery" modelAttribute="brewery">
+                                <form:form class="user" method="POST" action="/updateBrewery" modelAttribute="brewery">
                                     <input type="hidden" name="destination" value="${param.destination}"/>
                                     <input type="hidden" name="CSRF_TOKEN" value="${CSRF_TOKEN}"/>
-
                                     <div class="form-group">
                                         <input type="text" class="form-control form-control-user"
-                                               name="userId" id="userId" aria-describedby="userIdHelp" placeholder="User ID">
-                                        <form:errors path="userId" />
+                                               name="breweryId" id="breweryId" placeholder="Brewery ID">
+                                        <form:errors path="breweryId" />
                                     </div>
                                     <div class="form-group">
                                         <input type="text" class="form-control form-control-user"
@@ -77,7 +76,7 @@
                                         </div>
                                     </div>
                                     <button type="submit" class="btn btn-primary btn-user btn-block">
-                                        Add Brewery
+                                        Update
                                     </button>
                                 </form:form>
                                 <hr>

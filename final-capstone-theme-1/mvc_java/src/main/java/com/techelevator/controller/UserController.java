@@ -3,9 +3,7 @@ package com.techelevator.controller;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
-import com.techelevator.dao.BeerDAO;
 import com.techelevator.dao.BreweryDAO;
-import com.techelevator.entity.Beer;
 import com.techelevator.entity.Brewery;
 import com.techelevator.security.AuthorizationFilter;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,18 +19,18 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.techelevator.entity.User;
 import com.techelevator.dao.UserDAO;
 
+import java.util.List;
+
 @Controller
 public class UserController {
 
 	private UserDAO userDAO;
 	private BreweryDAO breweryDAO;
-	private BeerDAO beerDAO;
 
 	@Autowired
-	public UserController(UserDAO userDAO, BreweryDAO breweryDAO, BeerDAO beerDAO) {
+	public UserController(UserDAO userDAO, BreweryDAO breweryDAO) {
 		this.userDAO = userDAO;
 		this.breweryDAO = breweryDAO;
-		this.beerDAO = beerDAO;
 	}
 
 	@RequestMapping(path="/confirmation", method=RequestMethod.GET)
@@ -119,32 +117,43 @@ public class UserController {
 		try {
 			breweryDAO.saveBrewery(brewery);
 		} catch (Exception exc){
+			System.out.println(exc.getMessage());
 			// good place to log
 			return "redirect:/error";
 		}
 		return "redirect:/confirmation";
 	}
 
-	@RequestMapping(path="/addBeer", method=RequestMethod.GET)
-	public String displayAddBeerForm() {
-		return "user/addBeer";
+	@RequestMapping(path="/breweryList", method=RequestMethod.GET)
+	public String displayBreweryList(ModelMap modelHolder) {
+		List<Brewery> breweries = breweryDAO.getAllBreweries();
+		modelHolder.put("breweries", breweries);
+		return "user/breweriesTable";
 	}
 
-	@RequestMapping(path="/addBeer", method=RequestMethod.POST)
-	public String createBeer(@Valid @ModelAttribute Beer beer, BindingResult result, RedirectAttributes flash) {
+	@RequestMapping(path="/updateBrewery", method=RequestMethod.GET)
+	public String displayUpdateBreweryForm() {
+		return "user/updateBrewery";
+	}
+
+	@RequestMapping(path="/updateBrewery", method=RequestMethod.POST)
+	public String updateBrewery(@Valid @ModelAttribute Brewery brewery, BindingResult result, RedirectAttributes flash) {
 		if(result.hasErrors()) {
-			flash.addFlashAttribute("beer", beer);
-			flash.addFlashAttribute(BindingResult.MODEL_KEY_PREFIX + "beer", result);
-			return "redirect:/addBeer";
+			flash.addFlashAttribute("brewery", brewery);
+			flash.addFlashAttribute(BindingResult.MODEL_KEY_PREFIX + "brewery", result);
+			return "redirect:/updateBrewery";
 		}
 		try {
-			beerDAO.addBeer(beer, 1L);
+			breweryDAO.updateBrewery(brewery);
 		} catch (Exception exc){
+			System.out.println(exc.getMessage());
 			// good place to log
 			return "redirect:/error";
 		}
 		return "redirect:/confirmation";
 	}
+
+
 
 
 }

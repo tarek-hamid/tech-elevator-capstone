@@ -1,14 +1,13 @@
 package com.techelevator.dao;
 
 import com.techelevator.entity.Brewery;
-import com.techelevator.entity.User;
-import org.bouncycastle.util.encoders.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 
 import javax.sql.DataSource;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,50 +23,59 @@ public class JDBCBreweryDAO implements BreweryDAO{
 
     @Override
     public void saveBrewery(Brewery brewery) {
-        jdbcTemplate.update("INSERT INTO brewery(user_id, brewery_name, open_from, open_until, phone_number, website, email, address, history, active) " +
-                        "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+        brewery.setBreweryId(getBreweryId());
+        jdbcTemplate.update("INSERT INTO brewery (brewery_id, user_id, brewery_name, open_from, open_until, phone_number, website, email, address, history, active) " +
+                        "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+                brewery.getBreweryId(),
                 brewery.getUserId(), brewery.getName(), brewery.getOpenFrom(), brewery.getOpenTo(),
                 brewery.getPhoneNumber(), brewery.getWebsite(), brewery.getEmail(),
                 brewery.getAddress(), brewery.getHistory(), brewery.getActive());
     }
 
-//    @Override
-//    public User getUserByUserName(String userName) {
-//        String sqlSearchForUsername ="SELECT * "+
-//                "FROM app_user "+
-//                "WHERE UPPER(user_name) = ? ";
-//
-//        SqlRowSet user = jdbcTemplate.queryForRowSet(sqlSearchForUsername, userName.toUpperCase());
-//        User thisUser = null;
-//        if(user.next()) {
-//            thisUser = new User();
-//            thisUser.setId(user.getLong("id"));
-//            thisUser.setUserName(user.getString("user_name"));
-//            thisUser.setPassword(user.getString("password"));
-//            thisUser.setFirstName(user.getString("first_name"));
-//            thisUser.setLastName(user.getString("last_name"));
-//            thisUser.setRole(user.getString("role"));
-//        }
-//
-//        return thisUser;
-   // }
-
-
     @Override
-    public void getAllBreweries() {
+    public List<Brewery> getAllBreweries() {
         String sqlSelectAllBreweries ="SELECT * "+
                 "FROM brewery";
         SqlRowSet brewery = jdbcTemplate.queryForRowSet(sqlSelectAllBreweries);
         List<Brewery> breweries = new ArrayList<>();
-        if(brewery.next()) {
+        while(brewery.next()) {
             breweries.add(buildBrewery(brewery));
         }
+        return breweries;
+    }
+
+    @Override
+    public void updateBrewery(Brewery brewery) {
+        jdbcTemplate.update("UPDATE brewery SET brewery_name = ?, open_from = ?, open_until = ?, " +
+                "phone_number = ?, website = ?, email = ?, " +
+                "address = ?, history = ?, active = ?  WHERE brewery_id = ?",
+                brewery.getName(), brewery.getOpenFrom(), brewery.getOpenTo(),
+                brewery.getPhoneNumber(), brewery.getWebsite(), brewery.getEmail(),
+                brewery.getAddress(), brewery.getHistory(), brewery.getActive(), brewery.getBreweryId());
     }
 
     private Brewery buildBrewery(SqlRowSet brewery){
         Brewery brew = new Brewery();
+        brew.setUserId(brewery.getInt("user_id"));
+        brew.setName(brewery.getString("brewery_name"));
+        brew.setOpenFrom(LocalTime.parse(brewery.getString("open_from")));
+        brew.setOpenTo(LocalTime.parse(brewery.getString("open_until")));
+        brew.setPhoneNumber(brewery.getString("phone_number"));
+        brew.setWebsite(brewery.getString("website"));
+        brew.setEmail(brewery.getString("email"));
+        brew.setAddress(brewery.getString("address"));
+        brew.setHistory(brewery.getString("history"));
+        brew.setActive(brewery.getBoolean("active"));
+        return brew;
+    }
 
-        return null;
+    private long getBreweryId() {
+        SqlRowSet nextIdResult = jdbcTemplate.queryForRowSet("SELECT nextval('brewery_brewery_id_seq')");
+        if(nextIdResult.next()) {
+            return nextIdResult.getLong(1);
+        } else {
+            throw new RuntimeException("Something went wrong while getting an id for the new city");
+        }
     }
 
 }
