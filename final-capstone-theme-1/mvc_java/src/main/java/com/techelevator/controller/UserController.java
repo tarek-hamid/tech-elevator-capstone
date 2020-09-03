@@ -3,7 +3,9 @@ package com.techelevator.controller;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
+import com.techelevator.dao.BeerDAO;
 import com.techelevator.dao.BreweryDAO;
+import com.techelevator.entity.Beer;
 import com.techelevator.entity.Brewery;
 import com.techelevator.security.AuthorizationFilter;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,11 +26,13 @@ public class UserController {
 
 	private UserDAO userDAO;
 	private BreweryDAO breweryDAO;
+	private BeerDAO beerDAO;
 
 	@Autowired
-	public UserController(UserDAO userDAO, BreweryDAO breweryDAO) {
+	public UserController(UserDAO userDAO, BreweryDAO breweryDAO, BeerDAO beerDAO) {
 		this.userDAO = userDAO;
 		this.breweryDAO = breweryDAO;
+		this.beerDAO = beerDAO;
 	}
 
 	@RequestMapping(path="/confirmation", method=RequestMethod.GET)
@@ -82,7 +86,7 @@ public class UserController {
 				return "redirect:/user/dashboard";
 			}
 		} else {
-			return "redirect:/user/login";
+			return "redirect:/login";
 		}
 	}
 
@@ -114,6 +118,27 @@ public class UserController {
 		}
 		try {
 			breweryDAO.saveBrewery(brewery);
+		} catch (Exception exc){
+			// good place to log
+			return "redirect:/error";
+		}
+		return "redirect:/confirmation";
+	}
+
+	@RequestMapping(path="/addBeer", method=RequestMethod.GET)
+	public String displayAddBeerForm() {
+		return "user/addBeer";
+	}
+
+	@RequestMapping(path="/addBeer", method=RequestMethod.POST)
+	public String createBeer(@Valid @ModelAttribute Beer beer, BindingResult result, RedirectAttributes flash) {
+		if(result.hasErrors()) {
+			flash.addFlashAttribute("beer", beer);
+			flash.addFlashAttribute(BindingResult.MODEL_KEY_PREFIX + "beer", result);
+			return "redirect:/addBeer";
+		}
+		try {
+			beerDAO.addBeer(beer, 1L);
 		} catch (Exception exc){
 			// good place to log
 			return "redirect:/error";
