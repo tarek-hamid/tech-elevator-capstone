@@ -29,11 +29,18 @@
   	<filter-class>com.techelevator.security.CSRFFilter</filter-class>
   </filter>
 
+<<<<<<< HEAD
+<!--  <filter-mapping>
+  	<filter-name>authFilter</filter-name>
+  	<url-pattern>/*</url-pattern>
+  </filter-mapping>-->
+=======
 <!--  <filter-mapping>-->
 <!--  	<filter-name>authFilter</filter-name>-->
 <!--  	<url-pattern>/*</url-pattern>-->
 <!--  </filter-mapping>-->
 
+>>>>>>> 64fec7fd99f2c901d446bf483b49f604b26cd6f3
 
 
   <filter-mapping>
