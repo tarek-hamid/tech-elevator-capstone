@@ -12,7 +12,6 @@ import static org.junit.Assert.*;
 public class JDBCBeerDAOTest extends DAOIntegrationTest {
     private JDBCBeerDAO dao;
 
-
     @Before
     public void setUp() throws Exception {
         dao = new JDBCBeerDAO(getDataSource());
@@ -30,7 +29,6 @@ public class JDBCBeerDAOTest extends DAOIntegrationTest {
         dao.addBeer(expectedBeer, 1L);
         assertEquals(expectedBeer, dao.getBeerByID(expectedBeer.getBeerId()));
     }
-
 
     private Beer getBeer(Long beerID, String name, String description, Double abv, String beerType) {
         Beer beer = new Beer();
