@@ -6,6 +6,8 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.SingleConnectionDataSource;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.Assert.*;
 
@@ -28,6 +30,12 @@ public class JDBCBeerDAOTest extends DAOIntegrationTest {
         Beer expectedBeer = getBeer(0L,"Beer", "Tarek", 8.00, "Tarek");
         dao.addBeer(expectedBeer, 1L);
         assertEquals(expectedBeer, dao.getBeerByID(expectedBeer.getBeerId()));
+    }
+
+    @Test
+    public void getBeersByBreweryIdTest(){
+        Beer testBeer = getBeer(1L, "Tarek", "Tarek", 10.00, "Tarek");
+        assertEquals(testBeer, dao.getBeerByBreweryId(1).get(0));
     }
 
     private Beer getBeer(Long beerID, String name, String description, Double abv, String beerType) {

@@ -17,31 +17,10 @@
                     <div class="card-body">
                         <ul>
                             <li>
-                                Open from: ${brewery.openFrom}
-                            </li>
-                            <li>
-                                Open to: ${brewery.openTo}
-                            </li>
-                            <li>
-                                Phone number: ${brewery.phoneNumber}
-                            </li>
-                            <li>
-                                Website: ${brewery.website}
-                            </li>
-                            <li>
-                                Email: ${brewery.email}
-                            </li>
-                            <li>
-                                Address: ${brewery.address}
-                            </li>
-                            <li>
                                 History: ${brewery.history}
                             </li>
                             <li>
-                                Active: ${brewery.active}
-                            </li>
-                            <li>
-                                <a href="dashboard/breweryDetails?id=${brewery.userId}">
+                                <a href="dashboard/breweryDetails?id=${brewery.breweryId}">
                                     View more about this brewery
                                 </a>
                             </li>

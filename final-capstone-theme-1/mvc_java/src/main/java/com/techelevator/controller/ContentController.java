@@ -1,15 +1,22 @@
 package com.techelevator.controller;
 
+import com.techelevator.dao.BeerDAO;
 import com.techelevator.dao.BreweryDAO;
+import com.techelevator.entity.Beer;
 import com.techelevator.entity.Brewery;
 import com.techelevator.util.EmployeeDataTable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -17,9 +24,11 @@ import java.util.List;
 public class ContentController {
 
 	private BreweryDAO breweryDAO;
+	private BeerDAO beerDAO;
 
 	@Autowired
-	public ContentController(BreweryDAO breweryDAO){
+	public ContentController(BreweryDAO breweryDAO, BeerDAO beerDAO){
+		this.beerDAO = beerDAO;
 		this.breweryDAO = breweryDAO;
 	}
 
@@ -31,13 +40,26 @@ public class ContentController {
 	}
 
 	@RequestMapping("/dashboard/breweryDetails")
-	public String displayBreweryDetails(HttpServletRequest request) {
+	public String displayBreweryDetails(HttpServletRequest request, ModelMap modelMap) {
 		int breweryId = Integer.parseInt(request.getParameter("id"));
 		Brewery brewery = breweryDAO.getBreweryById(breweryId);
+		List<Beer> beerList = new ArrayList<>();
+		beerList = beerDAO.getBeerByBreweryId(breweryId);
 
 		request.setAttribute("brewery", brewery);
+		modelMap.put("beers", beerList);
 
 		return "user/breweryDetails";
+	}
+
+	@RequestMapping("/dashboard/beerDetails")
+	public String displayBeerDetails(HttpServletRequest request) {
+		int beerId = Integer.parseInt(request.getParameter("id"));
+		Beer beer = beerDAO.getBeerByID(beerId);
+
+		request.setAttribute("beer", beer);
+
+		return "user/beerDetails";
 	}
 
 
@@ -92,6 +114,43 @@ public class ContentController {
 	public String displayAccordion(ModelMap modelMap) {
 		modelMap.put("employees", EmployeeDataTable.getInstance().getData());
 		return "examples/accordionExample";
+	}
+
+	@RequestMapping(path="/addBeer", method=RequestMethod.GET)
+	public String displayAddBeerForm() {
+		return "user/addBeer";
+	}
+
+	@RequestMapping(path="/addBeer", method=RequestMethod.POST)
+	public String addBeer(@Valid @ModelAttribute Beer beer, BindingResult result, RedirectAttributes flash, HttpServletRequest request) {
+		int breweryId = Integer.parseInt(request.getParameter("id"));
+		if(result.hasErrors()) {
+			flash.addFlashAttribute("beer", beer);
+			flash.addFlashAttribute(BindingResult.MODEL_KEY_PREFIX + "beer", result);
+			return "redirect:/addBeer";
+		}
+		try {
+			beerDAO.addBeer(beer, (long)breweryId);
+		} catch (Exception exc){
+			System.out.println(exc.getMessage());
+			// good place to log
+			return "redirect:/error";
+		}
+		return "redirect:/confirmation";
+	}
+
+
+	@RequestMapping(path="/deleteBeer", method=RequestMethod.GET)
+	public String deleteBeer(HttpServletRequest request) {
+		int beerId = Integer.parseInt(request.getParameter("id"));
+		try {
+			beerDAO.deleteBeer(beerId);
+		} catch (Exception exc){
+			System.out.println(exc.getMessage());
+			// good place to log
+			return "redirect:/error";
+		}
+		return "redirect:/user/dashboard";
 	}
 	
 }

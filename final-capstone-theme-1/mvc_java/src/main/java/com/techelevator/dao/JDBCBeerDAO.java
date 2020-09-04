@@ -7,6 +7,8 @@ import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 
 import javax.sql.DataSource;
+import java.util.ArrayList;
+import java.util.List;
 
 @Component
 public class JDBCBeerDAO implements BeerDAO{
@@ -27,9 +29,10 @@ public class JDBCBeerDAO implements BeerDAO{
                 beer.getBeerId(), beer.getName(), beer.getDescription(), beer.getAbv(), beer.getBeerType(), breweryId);
     }
 
+
     @Override
-    public void deleteBeer(Beer beer) {
-        jdbcTemplate.update("DELETE FROM beer WHERE name = ?", beer.getName());
+    public void deleteBeer(int beerId) {
+        jdbcTemplate.update("DELETE FROM beer WHERE beer_id = ?", beerId);
     }
 
     @Override
@@ -41,6 +44,19 @@ public class JDBCBeerDAO implements BeerDAO{
             theBeer = mapRowToBeer(results);
         }
         return theBeer;
+    }
+
+    @Override
+    public List<Beer> getBeerByBreweryId(int breweryId) {
+        List<Beer> beerList = new ArrayList<Beer>();
+        Beer beer = new Beer();
+        String sqlFindBeersByBreweryId = "SELECT * FROM beer WHERE brewery_id = ?";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sqlFindBeersByBreweryId, breweryId);
+        while(results.next()){
+            beer = mapRowToBeer(results);
+            beerList.add(beer);
+        }
+        return beerList;
     }
 
     private Beer mapRowToBeer(SqlRowSet results){

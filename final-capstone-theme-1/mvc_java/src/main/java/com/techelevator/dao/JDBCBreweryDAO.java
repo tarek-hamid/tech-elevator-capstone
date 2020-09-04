@@ -63,11 +63,11 @@ public class JDBCBreweryDAO implements BreweryDAO{
             theBrewery = buildBrewery(brewery);
         }
         return theBrewery;
-
     }
 
     private Brewery buildBrewery(SqlRowSet brewery){
         Brewery brew = new Brewery();
+        brew.setBreweryId(brewery.getLong("brewery_id"));
         brew.setUserId(brewery.getInt("user_id"));
         brew.setName(brewery.getString("brewery_name"));
         try {
