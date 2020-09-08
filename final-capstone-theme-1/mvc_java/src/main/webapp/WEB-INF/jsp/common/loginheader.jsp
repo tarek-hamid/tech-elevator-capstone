@@ -12,6 +12,7 @@
 
     <title>Capstone Project - Dashboard</title>
 
+    <script src="https://kit.fontawesome.com/b3b0d0e860.js" crossorigin="anonymous"></script>
     <!-- Custom fonts for this template-->
     <link href="../../../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css"/>
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
@@ -37,7 +38,8 @@
         <!-- Main Content -->
         <div id="content">
             <br>
-            <h1 class="text-center display-3"><b>CURE YOUR ALE-MENTS</b></h1>
+            <h1 class="text-center display-3"><i class="fas fa-beer fa-flip-vertical fa-spin"></i>  <b>CURE YOUR ALE-MENTS</b>  <i class="fas fa-beer fa-spin"></i></h1>
+
 
             <!-- Topbar -->
 <%--            <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">--%>
