@@ -103,72 +103,72 @@
 			</div>
 		</li>
 
-		<!-- Divider -->
-		<hr class="sidebar-divider">
+<%--		<!-- Divider -->--%>
+<%--		<hr class="sidebar-divider">--%>
 
-		<!-- Heading -->
-		<div class="sidebar-heading">
-			Content Examples
-		</div>
+<%--		<!-- Heading -->--%>
+<%--		<div class="sidebar-heading">--%>
+<%--			Content Examples--%>
+<%--		</div>--%>
 
 		<!-- Nav Item - Tables -->
-		<li class="nav-item">
-			<a class="nav-link" href="/user/basic/table">
-				<i class="fas fa-fw fa-table"></i>
-				<span>Basic Table</span></a>
-		</li>
-		<c:if test="${LOGGED_USER.role == 'CUSTOMER'}">
-        <li class="nav-item">
-            <a class="nav-link" href="/user/rest/table">
-                <i class="fas fa-fw fa-table"></i>
-                <span>REST Table</span></a>
-        </li>
-		</c:if>
-		<li class="nav-item">
-			<a class="nav-link" href="/user/cards">
-				<i class="fas fa-fw fa-sd-card"></i>
-				<span>Cards</span></a>
-		</li>
-		<li class="nav-item">
-			<a class="nav-link" href="/user/buttons">
-				<i class="fas fa-fw fa-bullseye"></i>
-				<span>Buttons</span></a>
-		</li>
-		<li class="nav-item">
-			<a class="nav-link" href="/user/accordion">
-				<i class="fas fa-fw fa-bullseye"></i>
-				<span>Accordion</span></a>
-		</li>
+<%--		<li class="nav-item">--%>
+<%--			<a class="nav-link" href="/user/basic/table">--%>
+<%--				<i class="fas fa-fw fa-table"></i>--%>
+<%--				<span>Basic Table</span></a>--%>
+<%--		</li>--%>
+<%--		<c:if test="${LOGGED_USER.role == 'CUSTOMER'}">--%>
+<%--        <li class="nav-item">--%>
+<%--            <a class="nav-link" href="/user/rest/table">--%>
+<%--                <i class="fas fa-fw fa-table"></i>--%>
+<%--                <span>REST Table</span></a>--%>
+<%--        </li>--%>
+<%--		</c:if>--%>
+<%--		<li class="nav-item">--%>
+<%--			<a class="nav-link" href="/user/cards">--%>
+<%--				<i class="fas fa-fw fa-sd-card"></i>--%>
+<%--				<span>Cards</span></a>--%>
+<%--		</li>--%>
+<%--		<li class="nav-item">--%>
+<%--			<a class="nav-link" href="/user/buttons">--%>
+<%--				<i class="fas fa-fw fa-bullseye"></i>--%>
+<%--				<span>Buttons</span></a>--%>
+<%--		</li>--%>
+<%--		<li class="nav-item">--%>
+<%--			<a class="nav-link" href="/user/accordion">--%>
+<%--				<i class="fas fa-fw fa-bullseye"></i>--%>
+<%--				<span>Accordion</span></a>--%>
+<%--		</li>--%>
 
-		<!-- Divider -->
-		<hr class="sidebar-divider">
+<%--		<!-- Divider -->--%>
+<%--		<hr class="sidebar-divider">--%>
 
-		<!-- Heading -->
-		<div class="sidebar-heading">
-			Addons
-		</div>
+<%--		<!-- Heading -->--%>
+<%--		<div class="sidebar-heading">--%>
+<%--			Addons--%>
+<%--		</div>--%>
 
-		<!-- Nav Item - Form -->
-		<li class="nav-item">
-			<a class="nav-link" href="/formExample">
-				<i class="fas fa-fw fa-chart-area"></i>
-				<span>Form Example</span></a>
-		</li>
+<%--		<!-- Nav Item - Form -->--%>
+<%--		<li class="nav-item">--%>
+<%--			<a class="nav-link" href="/formExample">--%>
+<%--				<i class="fas fa-fw fa-chart-area"></i>--%>
+<%--				<span>Form Example</span></a>--%>
+<%--		</li>--%>
 
-		<!-- Nav Item - Charts -->
-		<li class="nav-item">
-			<a class="nav-link" href="/user/charts">
-				<i class="fas fa-fw fa-chart-area"></i>
-				<span>Charts</span></a>
-		</li>
+<%--		<!-- Nav Item - Charts -->--%>
+<%--		<li class="nav-item">--%>
+<%--			<a class="nav-link" href="/user/charts">--%>
+<%--				<i class="fas fa-fw fa-chart-area"></i>--%>
+<%--				<span>Charts</span></a>--%>
+<%--		</li>--%>
 
-		<!-- Divider -->
-		<hr class="sidebar-divider d-none d-md-block">
+<%--		<!-- Divider -->--%>
+<%--		<hr class="sidebar-divider d-none d-md-block">--%>
 
-		<!-- Sidebar Toggler (Sidebar) -->
-		<div class="text-center d-none d-md-inline">
-			<button class="rounded-circle border-0" id="sidebarToggle"></button>
-		</div>
+<%--		<!-- Sidebar Toggler (Sidebar) -->--%>
+<%--		<div class="text-center d-none d-md-inline">--%>
+<%--			<button class="rounded-circle border-0" id="sidebarToggle"></button>--%>
+<%--		</div>--%>
 
 	</ul>
 	<!-- End of Sidebar -->

@@ -36,7 +36,7 @@
 
         <!-- Main Content -->
         <div id="content">
-            <h1 class="text-center">Title</h1>
+            <h1 class="text-center">Cure Your Ale-Ments</h1>
 
             <!-- Topbar -->
 <%--            <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">--%>
