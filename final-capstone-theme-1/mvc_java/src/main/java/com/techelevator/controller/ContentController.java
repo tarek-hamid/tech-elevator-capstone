@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.jws.WebParam;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.util.ArrayList;
@@ -158,20 +159,24 @@ public class ContentController {
 	}
 
 	@RequestMapping(path="/reviewBeer", method=RequestMethod.GET)
-	public String displayReviewBeerForm() {
+	public String displayReviewBeerForm(ModelMap modelHolder, HttpServletRequest request) {
+		if (!modelHolder.containsAttribute("rating")){
+			modelHolder.put("rating", new Rating(Integer.parseInt(request.getParameter("id"))));
+		}
 		return "user/reviewBeer";
 	}
 
 	@RequestMapping(path="/reviewBeer", method=RequestMethod.POST)
-	public String reviewBeer(@Valid @ModelAttribute Rating rating, BindingResult result, RedirectAttributes flash, HttpServletRequest request) {
-		int beerId = Integer.parseInt(request.getParameter("id"));
+	public String reviewBeer(@Valid @ModelAttribute Rating rating, BindingResult result, RedirectAttributes flash,
+							 ModelMap modelHolder) {
+		rating = (Rating) modelHolder.get("rating");
 		if(result.hasErrors()) {
 			flash.addFlashAttribute("rating", rating);
 			flash.addFlashAttribute(BindingResult.MODEL_KEY_PREFIX + "rating", result);
 			return "redirect:/reviewBeer";
 		}
 		try {
-			ratingDAO.addRating(rating, beerId);
+			ratingDAO.addRating(rating, rating.getBeerId());
 		} catch (Exception exc){
 			System.out.println(exc.getMessage());
 			// good place to log

@@ -7,6 +7,13 @@ public class Rating {
     private int rating;
     private String ratingDescription;
 
+    public Rating() {
+    }
+
+    public Rating(int beerId) {
+        this.beerId = beerId;
+    }
+
     public Long getRatingId() {
         return ratingId;
     }

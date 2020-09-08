@@ -16,23 +16,24 @@
                     <!-- Nested Row within Card Body -->
                     <div class="row justify-content-center">
                         <!--<div class="col-lg-6 d-none d-lg-block bg-login-image"></div>-->
+                        <c:set var="rating" value="${requestScope.rating}"/>
                         <div class="col-lg-6">
                             <div class="p-5">
                                 <div class="text-center">
                                     <h1 class="h4 text-gray-900 mb-4">Review Beer</h1>
                                 </div>
-                                <form:form class="user" method="POST" action="/user/reviewBeer" modelAttribute="beer">
+                                <form:form class="user" method="POST" action="/user/reviewBeer" modelAttribute="rating">
                                     <input type="hidden" name="destination" value="${param.destination}"/>
                                     <input type="hidden" name="CSRF_TOKEN" value="${CSRF_TOKEN}"/>
                                     <div class="form-group">
                                         <input type="text" class="form-control form-control-user"
-                                               name="review" id="review" aria-describedby="descriptionHelp" placeholder="Review">
-                                        <form:errors path="review" cssClass="error"/>
+                                               name="ratingDescription" id="ratingDescription" aria-describedby="descriptionHelp" placeholder="ratingDescription">
+                                        <form:errors path="ratingDescription" cssClass="error"/>
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" class="form-control form-control-user"
-                                               name="beerType" id="beerType" placeholder="Beer Type">
-                                        <form:errors path="beerType" cssClass="error"/>
+                                        <input type="number" class="form-control form-control-user"
+                                               name="rating" id="rating" placeholder="Rating (1-5)">
+                                        <form:errors path="rating" cssClass="error"/>
                                     </div>
                                     <button type="submit" class="btn btn-primary btn-user btn-block">
                                         Submit Review
