@@ -37,6 +37,12 @@
                                         </span>
                                     <span class="text">Delete Beer</span>
                                 </a>
+                                <a href="/user/reviewBeer?id=${beer.beerId}" class="btn btn-light btn-icon-split">
+                                        <span class="icon text-gray-600">
+                                            <i class="fas fa-arrow-right"></i>
+                                        </span>
+                                    <span class="text">Review Beer</span>
+                                </a>
                             </div>
                         </div>
                     </div>

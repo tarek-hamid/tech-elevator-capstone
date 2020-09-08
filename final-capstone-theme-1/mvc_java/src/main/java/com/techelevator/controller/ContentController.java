@@ -2,8 +2,10 @@ package com.techelevator.controller;
 
 import com.techelevator.dao.BeerDAO;
 import com.techelevator.dao.BreweryDAO;
+import com.techelevator.dao.RatingDAO;
 import com.techelevator.entity.Beer;
 import com.techelevator.entity.Brewery;
+import com.techelevator.entity.Rating;
 import com.techelevator.util.EmployeeDataTable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,11 +27,13 @@ public class ContentController {
 
 	private BreweryDAO breweryDAO;
 	private BeerDAO beerDAO;
+	private RatingDAO ratingDAO;
 
 	@Autowired
-	public ContentController(BreweryDAO breweryDAO, BeerDAO beerDAO){
+	public ContentController(BreweryDAO breweryDAO, BeerDAO beerDAO, RatingDAO ratingDAO){
 		this.beerDAO = beerDAO;
 		this.breweryDAO = breweryDAO;
+		this.ratingDAO = ratingDAO;
 	}
 
 	@RequestMapping(path="/dashboard", method=RequestMethod.GET)
@@ -151,6 +155,29 @@ public class ContentController {
 			return "redirect:/error";
 		}
 		return "redirect:/user/dashboard";
+	}
+
+	@RequestMapping(path="/reviewBeer", method=RequestMethod.GET)
+	public String displayReviewBeerForm() {
+		return "user/reviewBeer";
+	}
+
+	@RequestMapping(path="/reviewBeer", method=RequestMethod.POST)
+	public String reviewBeer(@Valid @ModelAttribute Rating rating, BindingResult result, RedirectAttributes flash, HttpServletRequest request) {
+		int beerId = Integer.parseInt(request.getParameter("id"));
+		if(result.hasErrors()) {
+			flash.addFlashAttribute("rating", rating);
+			flash.addFlashAttribute(BindingResult.MODEL_KEY_PREFIX + "rating", result);
+			return "redirect:/reviewBeer";
+		}
+		try {
+			ratingDAO.addRating(rating, beerId);
+		} catch (Exception exc){
+			System.out.println(exc.getMessage());
+			// good place to log
+			return "redirect:/error";
+		}
+		return "redirect:/confirmation";
 	}
 	
 }

@@ -2,16 +2,25 @@ package com.techelevator.entity;
 
 public class Rating {
 
-    private Beer beer;
+    private Long ratingId;
+    private int beerId;
     private int rating;
     private String ratingDescription;
 
-    public Beer getBeer() {
-        return beer;
+    public Long getRatingId() {
+        return ratingId;
     }
 
-    public void setBeer(Beer beer) {
-        this.beer = beer;
+    public void setRatingId(Long ratingId) {
+        this.ratingId = ratingId;
+    }
+
+    public int getBeerId() {
+        return beerId;
+    }
+
+    public void setBeerId(int beerId) {
+        this.beerId = beerId;
     }
 
     public int getRating() {
