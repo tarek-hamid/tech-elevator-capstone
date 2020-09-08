@@ -28,6 +28,9 @@
 
 <body id="page-top">
 
+
+<h1 class="text-center">Title Page </h1>
+
 <!-- Page Wrapper -->
 <div id="wrapper">
 

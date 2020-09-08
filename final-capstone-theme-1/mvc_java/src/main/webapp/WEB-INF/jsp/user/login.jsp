@@ -32,7 +32,7 @@
                              name="password" id="password" placeholder="Password">
                     </div>
                     <div class="form-group">
-                      <div class="custom-control custom-checkbox small">
+                      <div class="custom-control custom-checkbox small text-center">
                         <input type="checkbox" class="custom-control-input" id="customCheck">
                         <label class="custom-control-label" for="customCheck">Remember Me</label>
                       </div>

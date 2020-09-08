@@ -64,6 +64,11 @@ input:valid {
     font-size: 1.4em;
     color: #6B7F7A;
 }
+
+.row-padding {
+    padding-left: 10px;
+    padding-right: 10px;
+}
 /*
     End - Accordion Example Styles
  */
