@@ -3,9 +3,9 @@
 <c:import url="/WEB-INF/jsp/common/header.jsp" />
 
 <h1 class="text-lg-center">Our Breweries</h1>
-<div class="row">
-    <div class="col-sm-6 col-sm-6 col-sm-6" >
-        <c:forEach items="${breweries}" var="brewery">
+<div class="row-2">
+    <c:forEach items="${breweries}" var="brewery">
+    <div class="col-sm-4 col-sm-4 col-sm-4" >
             <!-- Collapsable Card Example -->
             <div class="card shadow mb-4">
                 <!-- Card Header - Accordion -->
@@ -17,7 +17,7 @@
                     <div class="card-body">
                         <ul>
                             <li>
-                                History: ${brewery.history}
+                                Hours: ${brewery.openFrom} - ${brewery.openTo}
                             </li>
                             <li>
                                 <a href="dashboard/breweryDetails?id=${brewery.breweryId}">
@@ -28,8 +28,8 @@
                     </div>
                 </div>
             </div>
-        </c:forEach>
     </div>
+    </c:forEach>
 </div>
 
 <c:import url="/WEB-INF/jsp/common/footer.jsp" />

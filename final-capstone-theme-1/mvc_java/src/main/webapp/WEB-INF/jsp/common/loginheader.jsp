@@ -36,23 +36,24 @@
 
         <!-- Main Content -->
         <div id="content">
+            <h1 class="text-center">Title</h1>
 
             <!-- Topbar -->
-            <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+<%--            <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">--%>
 
-                <!-- Sidebar Toggle (Topbar) -->
-                <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-                    <i class="fa fa-bars"></i>
-                </button>
-                <h1 class="display-2">Cure your Ale-ments</h1>
+<%--                <!-- Sidebar Toggle (Topbar) -->--%>
+<%--                <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">--%>
+<%--                    <i class="fa fa-bars"></i>--%>
+<%--                </button>--%>
+<%--                <h1 class="display-2">Cure your Ale-ments</h1>--%>
 
 
-                <!-- Topbar Navbar -->
-                <ul class="navbar-nav ml-auto">
+<%--                <!-- Topbar Navbar -->--%>
+<%--                <ul class="navbar-nav ml-auto">--%>
 
-                    <div class="topbar-divider d-none d-sm-block"></div>
+<%--                    <div class="topbar-divider d-none d-sm-block"></div>--%>
 
-                </ul>
+<%--                </ul>--%>
 
-            </nav>
+<%--            </nav>--%>
             <!-- End of Topbar -->
