@@ -28,9 +28,6 @@
 
 <body id="page-top">
 
-
-<h1 class="text-center">Title Page </h1>
-
 <!-- Page Wrapper -->
 <div id="wrapper">
 
@@ -39,22 +36,23 @@
 
         <!-- Main Content -->
         <div id="content">
-
+            <div class="container">
+                <h1 class="text-center">Title Page </h1>
+            </div>
             <!-- Topbar -->
-            <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+<%--            <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">--%>
+<%--                <!-- Sidebar Toggle (Topbar) -->--%>
+<%--&lt;%&ndash;                <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    <i class="fa fa-bars"></i>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                </button>&ndash;%&gt;--%>
 
-                <!-- Sidebar Toggle (Topbar) -->
-                <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-                    <i class="fa fa-bars"></i>
-                </button>
 
+<%--                <!-- Topbar Navbar -->--%>
+<%--&lt;%&ndash;                <ul class="navbar-nav ml-auto">&ndash;%&gt;--%>
 
-                <!-- Topbar Navbar -->
-                <ul class="navbar-nav ml-auto">
+<%--&lt;%&ndash;                    <div class="topbar-divider d-none d-sm-block"></div>&ndash;%&gt;--%>
 
-                    <div class="topbar-divider d-none d-sm-block"></div>
+<%--&lt;%&ndash;                </ul>&ndash;%&gt;--%>
 
-                </ul>
-
-            </nav>
+<%--            </nav>--%>
             <!-- End of Topbar -->

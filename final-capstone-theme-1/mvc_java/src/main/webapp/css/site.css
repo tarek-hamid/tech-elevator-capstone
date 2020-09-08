@@ -65,9 +65,11 @@ input:valid {
     color: #6B7F7A;
 }
 
-.row-padding {
-    padding-left: 10px;
-    padding-right: 10px;
+.row-2 {
+    display: flex;
+    flex-wrap: wrap;
+    /* margin-right: -.75rem; */
+    /* margin-left: -.75rem; */
 }
 /*
     End - Accordion Example Styles

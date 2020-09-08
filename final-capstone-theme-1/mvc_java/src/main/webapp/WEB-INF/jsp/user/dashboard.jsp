@@ -3,7 +3,7 @@
 <c:import url="/WEB-INF/jsp/common/header.jsp" />
 
 <h1 class="text-lg-center">Our Breweries</h1>
-<div class="row row-padding" >
+<div class="row-2">
     <c:forEach items="${breweries}" var="brewery">
     <div class="col-sm-4 col-sm-4 col-sm-4" >
             <!-- Collapsable Card Example -->
