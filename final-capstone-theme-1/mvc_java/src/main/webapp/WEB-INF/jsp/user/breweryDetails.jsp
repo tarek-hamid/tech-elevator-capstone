@@ -21,9 +21,18 @@
                                     <h1 class="h4 text-gray-900 mb-4">${brewery.name}</h1>
                                 </div>
                                 <ul>
-                                    <li>
-                                        Active: ${brewery.active}
-                                    </li>
+                                    <c:choose>
+                                        <c:when test="${brewery.active == true} ">
+                                            <li>
+                                                Active
+                                            </li>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <li>
+                                                Inactive
+                                            </li>
+                                        </c:otherwise>
+                                    </c:choose>
                                     <li>
                                         History: ${brewery.history}
                                     </li>
