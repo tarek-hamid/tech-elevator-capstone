@@ -13,7 +13,7 @@ input:invalid:required {
 }
 
 input:valid {
-    border: 2px solid green;
+    border: 2px solid darkorange;
 }
 
 .bg-register-image {
@@ -72,6 +72,20 @@ input:valid {
     /* margin-left: -.75rem; */
 }
 
+.display-3{
+    color: darkorange;
+}
+
+.btn-primary{
+    background-color: darkorange;
+    border-color: darkorange;
+}
+
+.btn-primary:hover {
+    color: #fff;
+    background-color: coral;
+    border-color: coral;
+}
 /*
     End - Accordion Example Styles
  */
