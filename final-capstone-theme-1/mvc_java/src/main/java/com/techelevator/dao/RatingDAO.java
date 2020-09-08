@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface RatingDAO {
 
-    public void addRating(Rating rating, int beerId);
-//    public List<Rating> getallReviews();
+    public void addRating(Rating rating);
+    public List<Rating> getAllReviewsByBeerId(int beerId);
 }
 

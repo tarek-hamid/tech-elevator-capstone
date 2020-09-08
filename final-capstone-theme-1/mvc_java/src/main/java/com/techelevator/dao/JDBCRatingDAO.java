@@ -7,6 +7,7 @@ import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 
 import javax.sql.DataSource;
+import java.util.ArrayList;
 import java.util.List;
 
 @Component
@@ -20,7 +21,7 @@ public class JDBCRatingDAO implements RatingDAO{
     }
 
     @Override
-    public void addRating(Rating rating, int beerId) {
+    public void addRating(Rating rating) {
         rating.setRatingId(getNextRatingId());
         jdbcTemplate.update("INSERT INTO rating(rating_id, beer_id, rating, rating_description)" +
                 " VALUES (?, ?, ?, ?);",
@@ -29,10 +30,18 @@ public class JDBCRatingDAO implements RatingDAO{
     }
 
 
-//    @Override
-//    public List<Rating> getallReviews() {
-//        return null;
-//    }
+    @Override
+    public List<Rating> getAllReviewsByBeerId(int beerId) {
+        List<Rating> ratingList = new ArrayList<>();
+        Rating rating = new Rating();
+        String sqlGetReviewsByBeerId = "SELECT * FROM rating WHERE beer_id = ?";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sqlGetReviewsByBeerId, beerId);
+        while(results.next()) {
+            rating = mapRowToRating(results);
+            ratingList.add(rating);
+        }
+        return ratingList;
+    }
 
     private Rating mapRowToRating(SqlRowSet results){
         Rating theRating = new Rating();

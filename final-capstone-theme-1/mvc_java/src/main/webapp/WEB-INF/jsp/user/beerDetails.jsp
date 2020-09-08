@@ -44,6 +44,13 @@
                                     <span class="text">Review Beer</span>
                                 </a>
                             </div>
+                            <div>
+                                <ul>
+                                    <c:forEach var="ratings" items="${requestScope.ratings}">
+                                            Reviews: ${ratings.rating}, ${ratings.ratingDescription}
+                                    </c:forEach>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>

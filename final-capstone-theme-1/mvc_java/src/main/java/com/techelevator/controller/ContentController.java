@@ -58,9 +58,11 @@ public class ContentController {
 	}
 
 	@RequestMapping("/dashboard/beerDetails")
-	public String displayBeerDetails(HttpServletRequest request) {
+	public String displayBeerDetails(ModelMap modelHolder, HttpServletRequest request) {
 		int beerId = Integer.parseInt(request.getParameter("id"));
 		Beer beer = beerDAO.getBeerByID(beerId);
+		List<Rating> ratingList = ratingDAO.getAllReviewsByBeerId(beerId);
+		modelHolder.put("ratings", ratingList);
 
 		request.setAttribute("beer", beer);
 
@@ -176,7 +178,7 @@ public class ContentController {
 			return "redirect:/reviewBeer";
 		}
 		try {
-			ratingDAO.addRating(rating, rating.getBeerId());
+			ratingDAO.addRating(rating);
 		} catch (Exception exc){
 			System.out.println(exc.getMessage());
 			// good place to log

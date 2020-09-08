@@ -25,6 +25,7 @@
                                 <form:form class="user" method="POST" action="/user/reviewBeer" modelAttribute="rating">
                                     <input type="hidden" name="destination" value="${param.destination}"/>
                                     <input type="hidden" name="CSRF_TOKEN" value="${CSRF_TOKEN}"/>
+                                    <input type="hidden" name="beerId" value="${rating.beerId}"/>
                                     <div class="form-group">
                                         <input type="text" class="form-control form-control-user"
                                                name="ratingDescription" id="ratingDescription" aria-describedby="descriptionHelp" placeholder="ratingDescription">
@@ -35,6 +36,7 @@
                                                name="rating" id="rating" placeholder="Rating (1-5)">
                                         <form:errors path="rating" cssClass="error"/>
                                     </div>
+
                                     <button type="submit" class="btn btn-primary btn-user btn-block">
                                         Submit Review
                                     </button>
