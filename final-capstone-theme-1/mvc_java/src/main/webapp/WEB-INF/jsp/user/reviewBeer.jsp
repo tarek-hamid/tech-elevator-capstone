@@ -21,7 +21,7 @@
                                 <div class="text-center">
                                     <h1 class="h4 text-gray-900 mb-4">Review Beer</h1>
                                 </div>
-                                <form:form class="user" method="POST" action="/reviewBeer" modelAttribute="beer">
+                                <form:form class="user" method="POST" action="/user/reviewBeer" modelAttribute="beer">
                                     <input type="hidden" name="destination" value="${param.destination}"/>
                                     <input type="hidden" name="CSRF_TOKEN" value="${CSRF_TOKEN}"/>
                                     <div class="form-group">
