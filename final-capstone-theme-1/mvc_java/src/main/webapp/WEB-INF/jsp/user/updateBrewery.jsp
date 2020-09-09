@@ -24,11 +24,12 @@
                                 <form:form class="user" method="POST" action="/brewer/updateBrewery" modelAttribute="brewery">
                                     <input type="hidden" name="destination" value="${param.destination}"/>
                                     <input type="hidden" name="CSRF_TOKEN" value="${CSRF_TOKEN}"/>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control form-control-user"
-                                               name="breweryId" id="breweryId" placeholder="Brewery ID">
-                                        <form:errors path="breweryId" />
-                                    </div>
+                                    <input type="hidden" name="breweryId" value="${breweryId}"/>
+<%--                                    <div class="form-group">--%>
+<%--                                        <input type="text" class="form-control form-control-user"--%>
+<%--                                               name="breweryId" id="breweryId" placeholder="Brewery ID">--%>
+<%--                                        <form:errors path="breweryId" />--%>
+<%--                                    </div>--%>
                                     <div class="form-group">
                                         <input type="text" class="form-control form-control-user"
                                                name="name" id="name" aria-describedby="nameHelp" placeholder="Brewery Name">

@@ -78,34 +78,13 @@
 				<span>Add Brewery</span></a>
 		</li>
 
-		<li class="nav-item">
-			<a class="nav-link" href="/brewer/updateBrewery">
-				<i class="fas fa-fw fa-table"></i>
-				<span>Update Brewery</span></a>
-		</li>
+<%--		<li class="nav-item">--%>
+<%--			<a class="nav-link" href="/brewer/updateBrewery">--%>
+<%--				<i class="fas fa-fw fa-table"></i>--%>
+<%--				<span>Update Brewery</span></a>--%>
+<%--		</li>--%>
 		</c:if>
 
-		<!-- Nav Item - Pages Collapse Menu -->
-		<li class="nav-item">
-			<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
-				<i class="fas fa-fw fa-folder"></i>
-				<span>Access Pages</span>
-			</a>
-			<div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-				<div class="bg-white py-2 collapse-inner rounded">
-					<h6 class="collapse-header">Login Screens:</h6>
-					<c:if test="${LOGGED_USER.getRole().equals(\"Brewer\")}">
-						<a class="collapse-item" href="/login">OnlyAppearsForBrewer</a>
-					</c:if>
-					<a class="collapse-item" href="/register">Register</a>
-					<div class="collapse-divider"></div>
-					<h6 class="collapse-header">Other Pages:</h6>
-					<a class="collapse-item" href="/user/404">404 Page</a>
-					<a class="collapse-item" href="/error">Error Page</a>
-					<a class="collapse-item" href="/user/blank">Blank Page</a>
-				</div>
-			</div>
-		</li>
 
 <%--		<!-- Divider -->--%>
 <%--		<hr class="sidebar-divider">--%>

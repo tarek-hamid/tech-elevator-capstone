@@ -69,6 +69,12 @@
                                         </span>
                                         <span class="text">Add Beer</span>
                                     </a>
+                                        <a class="btn btn-light btn-icon-split" href="/brewer/updateBrewery?breweryId=${brewery.breweryId}">
+                                            <span class="icon text-gray-600">
+                                                <i class="fas fa-fw fa-table"></i>
+                                            </span>
+                                            <span>Update Brewery</span>
+                                        </a>
                                     </c:if>
                                 </ul>
                             </div>

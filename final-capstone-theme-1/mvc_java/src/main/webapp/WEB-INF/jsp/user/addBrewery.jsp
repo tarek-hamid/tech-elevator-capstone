@@ -24,12 +24,7 @@
                                 <form:form class="user" method="POST" action="/brewer/addBrewery" modelAttribute="brewery">
                                     <input type="hidden" name="destination" value="${param.destination}"/>
                                     <input type="hidden" name="CSRF_TOKEN" value="${CSRF_TOKEN}"/>
-
-                                    <div class="form-group">
-                                        <input type="text" class="form-control form-control-user"
-                                               name="userId" id="userId" aria-describedby="userIdHelp" placeholder="User ID">
-                                        <form:errors path="userId" />
-                                    </div>
+                                    <input type="hidden" name="userId" value="${LOGGED_USER.getId()}"/>
                                     <div class="form-group">
                                         <input type="text" class="form-control form-control-user"
                                                name="name" id="name" aria-describedby="nameHelp" placeholder="Brewery Name">

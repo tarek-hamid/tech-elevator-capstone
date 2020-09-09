@@ -7,6 +7,7 @@ import com.techelevator.entity.Beer;
 import com.techelevator.entity.Brewery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -93,12 +94,14 @@ public class BrewerController {
     }
 
     @RequestMapping(path="/updateBrewery", method=RequestMethod.GET)
-    public String displayUpdateBreweryForm() {
+    public String displayUpdateBreweryForm(HttpServletRequest request, ModelMap modelHolder) {
+        int breweryId = Integer.parseInt(request.getParameter("breweryId"));
+        modelHolder.put("breweryId", breweryId);
         return "user/updateBrewery";
     }
 
     @RequestMapping(path="/updateBrewery", method=RequestMethod.POST)
-    public String updateBrewery(@Valid @ModelAttribute Brewery brewery, BindingResult result, RedirectAttributes flash) {
+    public String updateBrewery(@Valid @ModelAttribute Brewery brewery, BindingResult result, RedirectAttributes flash, HttpServletRequest request) {
         if(result.hasErrors()) {
             flash.addFlashAttribute("brewery", brewery);
             flash.addFlashAttribute(BindingResult.MODEL_KEY_PREFIX + "brewery", result);
