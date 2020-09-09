@@ -92,7 +92,7 @@
 			<div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
 				<div class="bg-white py-2 collapse-inner rounded">
 					<h6 class="collapse-header">Login Screens:</h6>
-					<c:if test="${LOGGED_USER == null}">
+					<c:if test="${LOGGED_USER.getRole().equals(User.BREWER)}">
 						<a class="collapse-item" href="/login">Login</a>
 					</c:if>
 					<a class="collapse-item" href="/register">Register</a>
