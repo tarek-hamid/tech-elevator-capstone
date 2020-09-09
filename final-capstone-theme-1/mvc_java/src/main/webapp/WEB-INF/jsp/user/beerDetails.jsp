@@ -1,5 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <c:import url="/WEB-INF/jsp/common/header.jsp" />
 
@@ -22,9 +23,25 @@
                                 <div class="text-center">
                                     <h1 class="display-3 orange beer-title-font">${beer.name}</h1>
                                 </div>
-                                <div class="text-md-center black">
-                                    <b>Average Rating:</b> 4.5
-                                </div>
+                                <c:set var="totalRating" value="${0}"/>
+                                <c:set var="ratingCounter" value="${0}"/>
+                                <c:forEach var="rating" items="${requestScope.ratings}">
+                                    <c:set var="totalRating" value="${totalRating + rating.rating}"/>
+                                    <c:set var="ratingCounter" value="${ratingCounter + 1}"/>
+                                </c:forEach>
+                                <c:set var="averageRating" value="${totalRating / ratingCounter}"/>
+                                <c:choose>
+                                    <c:when test="${ratingCounter == 0}">
+                                        <div class="text-md-center black">
+                                            <b>No reviews yet</b>
+                                        </div>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <div class="text-md-center black">
+                                            <b>Average Rating: <fmt:formatNumber type="number" maxFractionDigits="2" value="${averageRating}"/> </b>
+                                        </div>
+                                    </c:otherwise>
+                                </c:choose>
                                 <br>
                                 <ul class="list-group">
                                     <li class="list-group-item">

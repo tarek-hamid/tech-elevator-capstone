@@ -184,7 +184,7 @@ public class ContentController {
 		if(result.hasErrors()) {
 			flash.addFlashAttribute("rating", rating);
 			flash.addFlashAttribute(BindingResult.MODEL_KEY_PREFIX + "rating", result);
-			return "redirect:/reviewBeer";
+			return "redirect:/user/reviewBeer";
 		}
 		try {
 			ratingDAO.addRating(rating);

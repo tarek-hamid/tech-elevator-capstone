@@ -27,16 +27,14 @@
                                     <input type="hidden" name="CSRF_TOKEN" value="${CSRF_TOKEN}"/>
                                     <input type="hidden" name="beerId" value="${rating.beerId}"/>
                                     <div class="form-group">
-                                        <input type="text" class="form-control form-control-user"
-                                               name="ratingDescription" id="ratingDescription" aria-describedby="descriptionHelp" placeholder="ratingDescription">
-                                        <form:errors path="ratingDescription" cssClass="error"/>
-                                    </div>
-                                    <div class="form-group">
                                         <input type="number" class="form-control form-control-user"
-                                               name="rating" id="rating" placeholder="Rating (1-5)">
+                                               value="1" name="rating" id="rating" min="1" max="5" placeholder="Rating (1-5)">
                                         <form:errors path="rating" cssClass="error"/>
                                     </div>
-
+                                    <div class="form-group">
+                                        <input type="text" class="form-control form-control-user"
+                                               name="ratingDescription" id="ratingDescription" aria-describedby="descriptionHelp" placeholder="Tell us what you think">                                        <form:errors path="ratingDescription" cssClass="error"/>
+                                    </div>
                                     <button type="submit" class="btn btn-primary btn-user btn-block">
                                         Submit Review
                                     </button>
