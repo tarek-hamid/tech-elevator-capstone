@@ -9,8 +9,8 @@ import org.hibernate.validator.constraints.NotBlank;
 
 public class User {
 
-	public static final String BREWER = "BREWER";
-	public static final String BEER_LOVER = "BEER_LOVER";
+	public static final String BREWER = "Brewer";
+	public static final String BEER_LOVER = "BeerLover";
     public static final String ADMINISTRATOR = "ADMINISTRATOR";
 
 	private Long id;

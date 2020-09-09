@@ -62,7 +62,7 @@
                                             </a>
                                         </c:forEach>
                                     </li>
-                                    <a href="/addBeer?id=${brewery.breweryId}"   class="btn btn-light btn-icon-split">
+                                    <a href="/user/addBeer?breweryId=${brewery.breweryId}"   class="btn btn-light btn-icon-split">
                                         <span class="icon text-gray-600">
                                             <i class="fas fa-arrow-right"></i>
                                         </span>

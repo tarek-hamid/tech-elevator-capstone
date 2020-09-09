@@ -124,17 +124,19 @@ public class ContentController {
 	}
 
 	@RequestMapping(path="/addBeer", method=RequestMethod.GET)
-	public String displayAddBeerForm() {
+	public String displayAddBeerForm(HttpServletRequest request) {
+		int breweryId = Integer.parseInt(request.getParameter("breweryId"));
+		request.setAttribute("breweryId", breweryId);
 		return "user/addBeer";
 	}
 
 	@RequestMapping(path="/addBeer", method=RequestMethod.POST)
 	public String addBeer(@Valid @ModelAttribute Beer beer, BindingResult result, RedirectAttributes flash, HttpServletRequest request) {
-		int breweryId = Integer.parseInt(request.getParameter("id"));
+		int breweryId = Integer.parseInt(request.getParameter("breweryId"));
 		if(result.hasErrors()) {
 			flash.addFlashAttribute("beer", beer);
 			flash.addFlashAttribute(BindingResult.MODEL_KEY_PREFIX + "beer", result);
-			return "redirect:/addBeer";
+			return "redirect:/user/addBeer";
 		}
 		try {
 			beerDAO.addBeer(beer, (long)breweryId);
