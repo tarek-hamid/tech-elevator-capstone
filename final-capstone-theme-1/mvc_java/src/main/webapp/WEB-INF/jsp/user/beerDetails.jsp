@@ -31,12 +31,14 @@
                                         Beer type: ${beer.beerType}
                                     </li>
                                 </ul>
-                                <a href="/user/deleteBeer?id=${beer.beerId}" class="btn btn-light btn-icon-split">
+                                <c:if test="${LOGGED_USER.getRole().equals(\"Brewer\")}">
+                                <a href="/brewer/deleteBeer?id=${beer.beerId}" class="btn btn-light btn-icon-split">
                                         <span class="icon text-gray-600">
                                             <i class="fas fa-arrow-right"></i>
                                         </span>
                                     <span class="text">Delete Beer</span>
                                 </a>
+                                </c:if>
                                 <a href="/user/reviewBeer?id=${beer.beerId}" class="btn btn-light btn-icon-split">
                                         <span class="icon text-gray-600">
                                             <i class="fas fa-arrow-right"></i>

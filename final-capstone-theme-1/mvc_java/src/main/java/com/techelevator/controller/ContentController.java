@@ -123,44 +123,51 @@ public class ContentController {
 		return "examples/accordionExample";
 	}
 
-	@RequestMapping(path="/addBeer", method=RequestMethod.GET)
-	public String displayAddBeerForm(HttpServletRequest request) {
-		int breweryId = Integer.parseInt(request.getParameter("breweryId"));
-		request.setAttribute("breweryId", breweryId);
-		return "user/addBeer";
+	@RequestMapping(path="/breweryList", method=RequestMethod.GET)
+	public String displayBreweryList(ModelMap modelHolder) {
+		List<Brewery> breweries = breweryDAO.getAllBreweries();
+		modelHolder.put("breweries", breweries);
+		return "user/breweriesTable";
 	}
 
-	@RequestMapping(path="/addBeer", method=RequestMethod.POST)
-	public String addBeer(@Valid @ModelAttribute Beer beer, BindingResult result, RedirectAttributes flash, HttpServletRequest request) {
-		int breweryId = Integer.parseInt(request.getParameter("breweryId"));
-		if(result.hasErrors()) {
-			flash.addFlashAttribute("beer", beer);
-			flash.addFlashAttribute(BindingResult.MODEL_KEY_PREFIX + "beer", result);
-			return "redirect:/user/addBeer";
-		}
-		try {
-			beerDAO.addBeer(beer, (long)breweryId);
-		} catch (Exception exc){
-			System.out.println(exc.getMessage());
-			// good place to log
-			return "redirect:/error";
-		}
-		return "redirect:/confirmation";
-	}
-
-
-	@RequestMapping(path="/deleteBeer", method=RequestMethod.GET)
-	public String deleteBeer(HttpServletRequest request) {
-		int beerId = Integer.parseInt(request.getParameter("id"));
-		try {
-			beerDAO.deleteBeer(beerId);
-		} catch (Exception exc){
-			System.out.println(exc.getMessage());
-			// good place to log
-			return "redirect:/error";
-		}
-		return "redirect:/user/dashboard";
-	}
+//	@RequestMapping(path="/addBeer", method=RequestMethod.GET)
+//	public String displayAddBeerForm(HttpServletRequest request) {
+//		int breweryId = Integer.parseInt(request.getParameter("breweryId"));
+//		request.setAttribute("breweryId", breweryId);
+//		return "user/addBeer";
+//	}
+//
+//	@RequestMapping(path="/addBeer", method=RequestMethod.POST)
+//	public String addBeer(@Valid @ModelAttribute Beer beer, BindingResult result, RedirectAttributes flash, HttpServletRequest request) {
+//		int breweryId = Integer.parseInt(request.getParameter("breweryId"));
+//		if(result.hasErrors()) {
+//			flash.addFlashAttribute("beer", beer);
+//			flash.addFlashAttribute(BindingResult.MODEL_KEY_PREFIX + "beer", result);
+//			return "redirect:/user/addBeer";
+//		}
+//		try {
+//			beerDAO.addBeer(beer, (long)breweryId);
+//		} catch (Exception exc){
+//			System.out.println(exc.getMessage());
+//			// good place to log
+//			return "redirect:/error";
+//		}
+//		return "redirect:/confirmation";
+//	}
+//
+//
+//	@RequestMapping(path="/deleteBeer", method=RequestMethod.GET)
+//	public String deleteBeer(HttpServletRequest request) {
+//		int beerId = Integer.parseInt(request.getParameter("id"));
+//		try {
+//			beerDAO.deleteBeer(beerId);
+//		} catch (Exception exc){
+//			System.out.println(exc.getMessage());
+//			// good place to log
+//			return "redirect:/error";
+//		}
+//		return "redirect:/user/dashboard";
+//	}
 
 	@RequestMapping(path="/reviewBeer", method=RequestMethod.GET)
 	public String displayReviewBeerForm(ModelMap modelHolder, HttpServletRequest request) {

@@ -35,7 +35,7 @@ public class AuthorizationFilter implements Filter {
 		String urlRequested = httpRequest.getRequestURI();
 		if(
 			urlRequested.contains("/admin/") ||
-			urlRequested.contains("/restricted/") ||
+			urlRequested.contains("/brewer/") ||
 			urlRequested.contains("/user/")
 			// Put more URLs here to lock down
 		) {
@@ -44,7 +44,7 @@ public class AuthorizationFilter implements Filter {
 			} else if (urlRequested.contains("/user/") && (sessionUser.getRole().equals("BeerLover")
 					|| sessionUser.getRole().equals("Brewer") || sessionUser.getRole().equals("Administrator"))){
 
-			} else if (urlRequested.contains("/restricted/") && (sessionUser.getRole().equals("Brewer") || sessionUser.getRole().equals("Administrator"))){
+			} else if (urlRequested.contains("/brewer/") && (sessionUser.getRole().equals("Brewer") || sessionUser.getRole().equals("Administrator"))){
 
 			} else if (urlRequested.contains("/admin/") && sessionUser.getRole().equals("Administrator")){
 

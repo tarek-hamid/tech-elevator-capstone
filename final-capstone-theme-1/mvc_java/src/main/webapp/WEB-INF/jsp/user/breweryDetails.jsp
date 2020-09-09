@@ -62,12 +62,14 @@
                                             </a>
                                         </c:forEach>
                                     </li>
-                                    <a href="/user/addBeer?breweryId=${brewery.breweryId}"   class="btn btn-light btn-icon-split">
+                                    <c:if test="${LOGGED_USER.getRole().equals(\"Brewer\")}">
+                                    <a href="/brewer/addBeer?breweryId=${brewery.breweryId}"   class="btn btn-light btn-icon-split">
                                         <span class="icon text-gray-600">
                                             <i class="fas fa-arrow-right"></i>
                                         </span>
                                         <span class="text">Add Beer</span>
                                     </a>
+                                    </c:if>
                                 </ul>
                             </div>
                         </div>

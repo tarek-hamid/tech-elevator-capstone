@@ -106,77 +106,77 @@ public class UserController {
 
 
 
-	@RequestMapping(path="/addBrewery", method=RequestMethod.GET)
-	public String displayAddBreweryForm() {
-		return "user/addBrewery";
-	}
+//	@RequestMapping(path="/addBrewery", method=RequestMethod.GET)
+//	public String displayAddBreweryForm() {
+//		return "user/addBrewery";
+//	}
+//
+//	@RequestMapping(path="/addBrewery", method=RequestMethod.POST)
+//	public String createBrewery(@Valid @ModelAttribute Brewery brewery, BindingResult result, RedirectAttributes flash) {
+//		if(result.hasErrors()) {
+//			flash.addFlashAttribute("brewery", brewery);
+//			flash.addFlashAttribute(BindingResult.MODEL_KEY_PREFIX + "brewery", result);
+//			return "redirect:/addBrewery";
+//		}
+//		try {
+//			breweryDAO.saveBrewery(brewery);
+//		} catch (Exception exc){
+//			System.out.println(exc.getMessage());
+//			// good place to log
+//			return "redirect:/error";
+//		}
+//		return "redirect:/confirmation";
+//	}
 
-	@RequestMapping(path="/addBrewery", method=RequestMethod.POST)
-	public String createBrewery(@Valid @ModelAttribute Brewery brewery, BindingResult result, RedirectAttributes flash) {
-		if(result.hasErrors()) {
-			flash.addFlashAttribute("brewery", brewery);
-			flash.addFlashAttribute(BindingResult.MODEL_KEY_PREFIX + "brewery", result);
-			return "redirect:/addBrewery";
-		}
-		try {
-			breweryDAO.saveBrewery(brewery);
-		} catch (Exception exc){
-			System.out.println(exc.getMessage());
-			// good place to log
-			return "redirect:/error";
-		}
-		return "redirect:/confirmation";
-	}
+//	@RequestMapping(path="/breweryList", method=RequestMethod.GET)
+//	public String displayBreweryList(ModelMap modelHolder) {
+//		List<Brewery> breweries = breweryDAO.getAllBreweries();
+//		modelHolder.put("breweries", breweries);
+//		return "user/breweriesTable";
+//	}
 
-	@RequestMapping(path="/breweryList", method=RequestMethod.GET)
-	public String displayBreweryList(ModelMap modelHolder) {
-		List<Brewery> breweries = breweryDAO.getAllBreweries();
-		modelHolder.put("breweries", breweries);
-		return "user/breweriesTable";
-	}
+//	@RequestMapping(path="/updateBrewery", method=RequestMethod.GET)
+//	public String displayUpdateBreweryForm() {
+//		return "user/updateBrewery";
+//	}
+//
+//	@RequestMapping(path="/updateBrewery", method=RequestMethod.POST)
+//	public String updateBrewery(@Valid @ModelAttribute Brewery brewery, BindingResult result, RedirectAttributes flash) {
+//		if(result.hasErrors()) {
+//			flash.addFlashAttribute("brewery", brewery);
+//			flash.addFlashAttribute(BindingResult.MODEL_KEY_PREFIX + "brewery", result);
+//			return "redirect:/updateBrewery";
+//		}
+//		try {
+//			breweryDAO.updateBrewery(brewery);
+//		} catch (Exception exc){
+//			System.out.println(exc.getMessage());
+//			// good place to log
+//			return "redirect:/error";
+//		}
+//		return "redirect:/confirmation";
+//	}
 
-	@RequestMapping(path="/updateBrewery", method=RequestMethod.GET)
-	public String displayUpdateBreweryForm() {
-		return "user/updateBrewery";
-	}
-
-	@RequestMapping(path="/updateBrewery", method=RequestMethod.POST)
-	public String updateBrewery(@Valid @ModelAttribute Brewery brewery, BindingResult result, RedirectAttributes flash) {
-		if(result.hasErrors()) {
-			flash.addFlashAttribute("brewery", brewery);
-			flash.addFlashAttribute(BindingResult.MODEL_KEY_PREFIX + "brewery", result);
-			return "redirect:/updateBrewery";
-		}
-		try {
-			breweryDAO.updateBrewery(brewery);
-		} catch (Exception exc){
-			System.out.println(exc.getMessage());
-			// good place to log
-			return "redirect:/error";
-		}
-		return "redirect:/confirmation";
-	}
-
-	@RequestMapping(path="/addBeer", method=RequestMethod.GET)
-	public String displayAddBeerForm() {
-		return "user/addBeer";
-	}
-
-	@RequestMapping(path="/addBeer", method=RequestMethod.POST)
-	public String createBeer(@Valid @ModelAttribute Beer beer, BindingResult result, RedirectAttributes flash) {
-		if(result.hasErrors()) {
-			flash.addFlashAttribute("beer", beer);
-			flash.addFlashAttribute(BindingResult.MODEL_KEY_PREFIX + "beer", result);
-			return "redirect:/addBeer";
-		}
-		try {
-			beerDAO.addBeer(beer, 1L);
-		} catch (Exception exc){
-			// good place to log
-			return "redirect:/error";
-		}
-		return "redirect:/confirmation";
-	}
+//	@RequestMapping(path="/addBeer", method=RequestMethod.GET)
+//	public String displayAddBeerForm() {
+//		return "user/addBeer";
+//	}
+//
+//	@RequestMapping(path="/addBeer", method=RequestMethod.POST)
+//	public String createBeer(@Valid @ModelAttribute Beer beer, BindingResult result, RedirectAttributes flash) {
+//		if(result.hasErrors()) {
+//			flash.addFlashAttribute("beer", beer);
+//			flash.addFlashAttribute(BindingResult.MODEL_KEY_PREFIX + "beer", result);
+//			return "redirect:/addBeer";
+//		}
+//		try {
+//			beerDAO.addBeer(beer, 1L);
+//		} catch (Exception exc){
+//			// good place to log
+//			return "redirect:/error";
+//		}
+//		return "redirect:/confirmation";
+//	}
 
 
 

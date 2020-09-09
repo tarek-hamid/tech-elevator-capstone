@@ -66,22 +66,24 @@
 		</div>
 
 		<li class="nav-item">
-			<a class="nav-link" href="/addBrewery">
+			<a class="nav-link" href="/user/breweryList">
+				<i class="fas fa-fw fa-table"></i>
+				<span>Brewery List</span></a>
+		</li>
+
+		<c:if test="${LOGGED_USER.getRole().equals(\"Brewer\")}">
+		<li class="nav-item">
+			<a class="nav-link" href="/brewer/addBrewery">
 				<i class="fas fa-fw fa-table"></i>
 				<span>Add Brewery</span></a>
 		</li>
 
 		<li class="nav-item">
-			<a class="nav-link" href="/breweryList">
-				<i class="fas fa-fw fa-table"></i>
-				<span>Brewery List</span></a>
-		</li>
-
-		<li class="nav-item">
-			<a class="nav-link" href="/updateBrewery">
+			<a class="nav-link" href="/brewer/updateBrewery">
 				<i class="fas fa-fw fa-table"></i>
 				<span>Update Brewery</span></a>
 		</li>
+		</c:if>
 
 		<!-- Nav Item - Pages Collapse Menu -->
 		<li class="nav-item">
@@ -92,8 +94,8 @@
 			<div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
 				<div class="bg-white py-2 collapse-inner rounded">
 					<h6 class="collapse-header">Login Screens:</h6>
-					<c:if test="${LOGGED_USER.getRole().equals(User.BREWER)}">
-						<a class="collapse-item" href="/login">Login</a>
+					<c:if test="${LOGGED_USER.getRole().equals(\"Brewer\")}">
+						<a class="collapse-item" href="/login">OnlyAppearsForBrewer</a>
 					</c:if>
 					<a class="collapse-item" href="/register">Register</a>
 					<div class="collapse-divider"></div>
