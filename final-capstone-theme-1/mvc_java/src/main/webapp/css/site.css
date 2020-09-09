@@ -92,6 +92,26 @@ input:valid {
     background-image: linear-gradient(180deg,#4e73df 10%,#224abe 100%);
     background-size: cover;
 }
+
+.orange {
+    color: orange;
+}
+
+.black {
+    color: #3a3b45;
+}
+
+.beer-title-font {
+    font-family: "Times New Roman";
+}
+
+.checked {
+    color: orange;
+}
+
+.unchecked {
+    color: lightgray;
+}
 /*
     End - Accordion Example Styles
  */
