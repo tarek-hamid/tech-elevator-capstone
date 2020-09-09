@@ -66,6 +66,10 @@
                                         <form:errors path="history" cssClass="error"/>
                                     </div>
                                     <div class="form-group">
+                                        <label for="userImage">Upload image:</label>
+                                        <input type="file" id="userImage" name="userImage" accept="image/*">
+                                    </div>
+                                    <div class="form-group">
                                         <div class="custom-control custom-checkbox small">
                                             <input type="checkbox" class="custom-control-input" value="true" id="active">
                                             <label class="custom-control-label" for="active">Is Active</label>
@@ -74,6 +78,7 @@
                                     <button type="submit" class="btn btn-primary btn-user btn-block">
                                         Add Brewery
                                     </button>
+                                    <br>
                                 </form:form>
                                 <hr>
                             </div>

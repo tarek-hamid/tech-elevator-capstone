@@ -38,11 +38,11 @@
 
 		<!-- Sidebar - Brand -->
 		<a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
-			<div class="sidebar-brand-icon">
+			<div class="sidebar-brand-icon logo">
 				<c:url var="logoImageUrl" value="/img/logo.png" />
 				<img src="${logoImageUrl}" />
 			</div>
-			<div class="sidebar-brand-text mx-3">Tech Connect <sup>2020</sup></div>
+			<div class="sidebar-brand-text mx-3">Ale-ments</div>
 		</a>
 
 		<!-- Divider -->
@@ -54,7 +54,7 @@
 				<c:url var="dashboardImageUrl" value="/img/dashboard.png" />
 				<img src="${dashboardImageUrl}" />
 			</div>
-			<div class="sidebar-brand-text mx-3">Dashboard</div>
+			<div class="sidebar-brand-text mx-3">Our Breweries</div>
 		</a>
 
 		<!-- Divider -->
@@ -77,81 +77,7 @@
 				<i class="fas fa-fw fa-table"></i>
 				<span>Add Brewery</span></a>
 		</li>
-
-<%--		<li class="nav-item">--%>
-<%--			<a class="nav-link" href="/brewer/updateBrewery">--%>
-<%--				<i class="fas fa-fw fa-table"></i>--%>
-<%--				<span>Update Brewery</span></a>--%>
-<%--		</li>--%>
 		</c:if>
-
-
-<%--		<!-- Divider -->--%>
-<%--		<hr class="sidebar-divider">--%>
-
-<%--		<!-- Heading -->--%>
-<%--		<div class="sidebar-heading">--%>
-<%--			Content Examples--%>
-<%--		</div>--%>
-
-		<!-- Nav Item - Tables -->
-<%--		<li class="nav-item">--%>
-<%--			<a class="nav-link" href="/user/basic/table">--%>
-<%--				<i class="fas fa-fw fa-table"></i>--%>
-<%--				<span>Basic Table</span></a>--%>
-<%--		</li>--%>
-<%--		<c:if test="${LOGGED_USER.role == 'CUSTOMER'}">--%>
-<%--        <li class="nav-item">--%>
-<%--            <a class="nav-link" href="/user/rest/table">--%>
-<%--                <i class="fas fa-fw fa-table"></i>--%>
-<%--                <span>REST Table</span></a>--%>
-<%--        </li>--%>
-<%--		</c:if>--%>
-<%--		<li class="nav-item">--%>
-<%--			<a class="nav-link" href="/user/cards">--%>
-<%--				<i class="fas fa-fw fa-sd-card"></i>--%>
-<%--				<span>Cards</span></a>--%>
-<%--		</li>--%>
-<%--		<li class="nav-item">--%>
-<%--			<a class="nav-link" href="/user/buttons">--%>
-<%--				<i class="fas fa-fw fa-bullseye"></i>--%>
-<%--				<span>Buttons</span></a>--%>
-<%--		</li>--%>
-<%--		<li class="nav-item">--%>
-<%--			<a class="nav-link" href="/user/accordion">--%>
-<%--				<i class="fas fa-fw fa-bullseye"></i>--%>
-<%--				<span>Accordion</span></a>--%>
-<%--		</li>--%>
-
-<%--		<!-- Divider -->--%>
-<%--		<hr class="sidebar-divider">--%>
-
-<%--		<!-- Heading -->--%>
-<%--		<div class="sidebar-heading">--%>
-<%--			Addons--%>
-<%--		</div>--%>
-
-<%--		<!-- Nav Item - Form -->--%>
-<%--		<li class="nav-item">--%>
-<%--			<a class="nav-link" href="/formExample">--%>
-<%--				<i class="fas fa-fw fa-chart-area"></i>--%>
-<%--				<span>Form Example</span></a>--%>
-<%--		</li>--%>
-
-<%--		<!-- Nav Item - Charts -->--%>
-<%--		<li class="nav-item">--%>
-<%--			<a class="nav-link" href="/user/charts">--%>
-<%--				<i class="fas fa-fw fa-chart-area"></i>--%>
-<%--				<span>Charts</span></a>--%>
-<%--		</li>--%>
-
-<%--		<!-- Divider -->--%>
-<%--		<hr class="sidebar-divider d-none d-md-block">--%>
-
-<%--		<!-- Sidebar Toggler (Sidebar) -->--%>
-<%--		<div class="text-center d-none d-md-inline">--%>
-<%--			<button class="rounded-circle border-0" id="sidebarToggle"></button>--%>
-<%--		</div>--%>
 
 	</ul>
 	<!-- End of Sidebar -->
@@ -186,62 +112,63 @@
 				<!-- Topbar Navbar -->
 				<ul class="navbar-nav ml-auto">
 
-					<!-- Nav Item - Alerts -->
-					<li class="nav-item dropdown no-arrow mx-1">
-						<a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							<c:url var="alertImageUrl" value="/img/alert.png" />
-							<img src="${alertImageUrl}" />
-							<!-- Counter - Alerts -->
-							<span class="badge badge-danger badge-counter">3+</span>
-						</a>
-						<!-- Dropdown - Alerts -->
-						<div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
-							<h6 class="dropdown-header">
-								Alerts Center
-							</h6>
-							<a class="dropdown-item d-flex align-items-center" href="#">
-								<div class="mr-3">
-									<div class="icon-circle bg-primary">
-										<i class="fas fa-file-alt text-white"></i>
-									</div>
-								</div>
-								<div>
-									<div class="small text-gray-500">December 12, 2019</div>
-									<span class="font-weight-bold">A new monthly report is ready to download!</span>
-								</div>
-							</a>
-							<a class="dropdown-item d-flex align-items-center" href="#">
-								<div class="mr-3">
-									<div class="icon-circle bg-success">
-										<i class="fas fa-donate text-white"></i>
-									</div>
-								</div>
-								<div>
-									<div class="small text-gray-500">December 7, 2019</div>
-									$290.29 has been deposited into your account!
-								</div>
-							</a>
-							<a class="dropdown-item d-flex align-items-center" href="#">
-								<div class="mr-3">
-									<div class="icon-circle bg-warning">
-										<i class="fas fa-exclamation-triangle text-white"></i>
-									</div>
-								</div>
-								<div>
-									<div class="small text-gray-500">December 2, 2019</div>
-									Spending Alert: We've noticed unusually high spending for your account.
-								</div>
-							</a>
-							<a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
-						</div>
-					</li>
+<%--					<!-- Nav Item - Alerts -->--%>
+<%--					<li class="nav-item dropdown no-arrow mx-1">--%>
+<%--						<a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">--%>
+<%--							<c:url var="alertImageUrl" value="/img/alert.png" />--%>
+<%--							<img src="${alertImageUrl}" />--%>
+<%--							<!-- Counter - Alerts -->--%>
+<%--							<span class="badge badge-danger badge-counter">3+</span>--%>
+<%--						</a>--%>
+<%--						<!-- Dropdown - Alerts -->--%>
+<%--						<div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">--%>
+<%--							<h6 class="dropdown-header">--%>
+<%--								Alerts Center--%>
+<%--							</h6>--%>
+<%--							<a class="dropdown-item d-flex align-items-center" href="#">--%>
+<%--								<div class="mr-3">--%>
+<%--									<div class="icon-circle bg-primary">--%>
+<%--										<i class="fas fa-file-alt text-white"></i>--%>
+<%--									</div>--%>
+<%--								</div>--%>
+<%--								<div>--%>
+<%--									<div class="small text-gray-500">December 12, 2019</div>--%>
+<%--									<span class="font-weight-bold">A new monthly report is ready to download!</span>--%>
+<%--								</div>--%>
+<%--							</a>--%>
+<%--							<a class="dropdown-item d-flex align-items-center" href="#">--%>
+<%--								<div class="mr-3">--%>
+<%--									<div class="icon-circle bg-success">--%>
+<%--										<i class="fas fa-donate text-white"></i>--%>
+<%--									</div>--%>
+<%--								</div>--%>
+<%--								<div>--%>
+<%--									<div class="small text-gray-500">December 7, 2019</div>--%>
+<%--									$290.29 has been deposited into your account!--%>
+<%--								</div>--%>
+<%--							</a>--%>
+<%--							<a class="dropdown-item d-flex align-items-center" href="#">--%>
+<%--								<div class="mr-3">--%>
+<%--									<div class="icon-circle bg-warning">--%>
+<%--										<i class="fas fa-exclamation-triangle text-white"></i>--%>
+<%--									</div>--%>
+<%--								</div>--%>
+<%--								<div>--%>
+<%--									<div class="small text-gray-500">December 2, 2019</div>--%>
+<%--									Spending Alert: We've noticed unusually high spending for your account.--%>
+<%--								</div>--%>
+<%--							</a>--%>
+<%--							<a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>--%>
+<%--						</div>--%>
+<%--					</li>--%>
 
 					<div class="topbar-divider d-none d-sm-block"></div>
 
+					<c:set var="user" value="${requestScope.user}"/>
 					<!-- Nav Item - User Information -->
 					<li class="nav-item dropdown no-arrow">
 						<a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							<span class="mr-2 d-none d-lg-inline text-gray-600 small">Carrie Capstone</span>
+							<span class="mr-2 d-none d-lg-inline text-gray-600 small">${LOGGED_USER.getFirstName()} ${LOGGED_USER.getLastName()}</span>
 							<img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
 						</a>
 						<!-- Dropdown - User Information -->

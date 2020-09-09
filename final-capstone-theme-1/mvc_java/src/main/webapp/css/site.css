@@ -112,6 +112,10 @@ input:valid {
 .unchecked {
     color: lightgray;
 }
+
+.logo{
+    border-radius: 50%;
+}
 /*
     End - Accordion Example Styles
  */

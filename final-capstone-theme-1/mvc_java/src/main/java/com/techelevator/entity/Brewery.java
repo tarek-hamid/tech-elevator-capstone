@@ -5,6 +5,7 @@ import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.*;
+import java.awt.image.BufferedImage;
 import java.sql.Time;
 import java.time.LocalTime;
 
@@ -31,6 +32,7 @@ public class Brewery {
     private String phoneNumber;
 
     private String website;
+
 
     @Email(message = "Must be a valid email address")
     private String email;
