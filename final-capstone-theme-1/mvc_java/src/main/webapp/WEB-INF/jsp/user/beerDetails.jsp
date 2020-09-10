@@ -56,21 +56,23 @@
                                 </ul>
                                 <br>
                                 <c:if test="${LOGGED_USER.getRole().equals(\"BeerLover\")}">
-                                <a href="/user/reviewBeer?id=${beer.beerId}" class="btn btn-light btn-icon-split">
+                                    <div class="text-center">
+                                        <a href="/user/reviewBeer?id=${beer.beerId}" class="btn btn-light btn-icon-split">
                                         <span class="icon text-gray-600">
                                             <i class="fas fa-arrow-right"></i>
                                         </span>
-                                    <span class="text">Review Beer</span>
-                                </a>
-                                </c:if>
-                                <c:if test="${LOGGED_USER.getRole().equals(\"Brewer\")}">
-                                <a href="/brewer/deleteBeer?id=${beer.beerId}" class="btn btn-light btn-icon-split">
+                                            <span class="text">Review Beer</span>
+                                        </a>
+                                        </c:if>
+                                        <c:if test="${LOGGED_USER.getRole().equals(\"Brewer\")}">
+                                            <a href="/brewer/deleteBeer?id=${beer.beerId}" class="btn btn-light btn-icon-split">
                                         <span class="icon text-gray-600">
                                             <i class="fas fa-arrow-right"></i>
                                         </span>
-                                    <span class="text">Delete Beer</span>
-                                </a>
-                                </c:if>
+                                                <span class="text">Delete Beer</span>
+                                            </a>
+                                        </c:if>
+                                    </div>
                             </div>
                         </div>
                         <div class="container-fluid">

@@ -18,11 +18,13 @@
                     <!-- Nested Row within Card Body -->
                     <div class="row justify-content-center">
                         <!--<div class="col-lg-6 d-none d-lg-block bg-login-image"></div>-->
+                        <br>
+                        <br>
+                        <div class="text-center">
+                            <h1 class="display-3 orange beer-title-font">${brewery.name}</h1>
+                        </div>
                         <div class="col-lg-6">
                             <div class="p-5">
-                                <div class="text-center">
-                                    <h1 class="display-3 orange beer-title-font">${brewery.name}</h1>
-                                </div>
                                     <c:choose>
                                         <c:when test="${brewery.active == true} ">
                                             <div class="text-md-center black">
@@ -77,21 +79,22 @@
                                 </div>
                             </c:if>
                             <br>
+                            <br>
                             <h3 class="text-center orange">
                                 Beers We Offer...
                             </h3>
+                            <br>
                         </div>
                             <div class="container-fluid">
                                 <div class="row-2">
+                                    <c:forEach items="${beers}" var="beer">
                                     <div class="col-md-4 col-md-4 col-md-4 col-md-4">
                                         <div class="card shadow mb-4">
                                             <div class="card-header py-3">
                                                 <h6 class="m-0 font-weight-bold text-primary text-center">
-                                                    <c:forEach items="${beers}" var="beer">
-                                                        <a href="beerDetails?id=${beer.beerId}">
-                                                                ${beer.name}
-                                                        </a>
-                                                    </c:forEach>
+                                                   <a href="beerDetails?id=${beer.beerId}">
+                                                           ${beer.name}
+                                                   </a>
                                                 </h6>
                                             </div>
                                             <div class="card-body text-center">
@@ -99,6 +102,7 @@
                                             </div>
                                         </div>
                                     </div>
+                                    </c:forEach>
                                 </div>
                             </div>
                         </div>
