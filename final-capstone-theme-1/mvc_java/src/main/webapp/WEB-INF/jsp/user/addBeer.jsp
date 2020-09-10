@@ -8,7 +8,6 @@
 
     <!-- Outer Row -->
     <div class="row justify-content-center">
-
         <div class="col-xl-10 col-lg-12 col-md-9">
 
             <div class="card o-hidden border-0 shadow-lg my-5">
@@ -24,11 +23,11 @@
                                 <form:form class="user" method="POST" action="/brewer/addBeer" modelAttribute="beer">
                                     <input type="hidden" name="destination" value="${param.destination}"/>
                                     <input type="hidden" name="CSRF_TOKEN" value="${CSRF_TOKEN}"/>
-                                    <input type="hidden" name="breweryId" value="${breweryId}"/>
+                                    <input type="hidden" name="breweryId" value="${beer.breweryId}"/>
                                     <div class="form-group">
                                         <input type="text" class="form-control form-control-user"
                                                name="name" id="name" aria-describedby="nameHelp" placeholder="Name">
-                                        <form:errors path="name" />
+                                        <form:errors path="name" cssClass="error"/>
                                     </div>
                                     <div class="form-group">
                                         <input type="text" class="form-control form-control-user"

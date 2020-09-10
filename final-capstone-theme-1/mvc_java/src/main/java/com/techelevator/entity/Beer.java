@@ -1,16 +1,32 @@
 package com.techelevator.entity;
 
+import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.Range;
+import sun.plugin2.message.Message;
+
+import javax.validation.constraints.NotNull;
 import java.util.Objects;
 
 public class Beer {
 
     private long beerId;
+
+    @NotBlank(message="Please name the beer")
     private String name;
+    @NotBlank(message = "please describe the beer")
     private String description;
+    @Range(min = (long) 0.0, max = (long) 50.0)
     private double abv;
+    @NotBlank(message = "What type of beer is it?")
     private String beerType;
 
+    private int breweryId;
+
     public Beer() {}
+
+    public Beer(int breweryId) {
+        this.breweryId = breweryId;
+    }
 
     public long getBeerId() {
         return beerId;
@@ -50,6 +66,14 @@ public class Beer {
 
     public void setBeerType(String beerType) {
         this.beerType = beerType;
+    }
+
+    public int getBreweryId() {
+        return breweryId;
+    }
+
+    public void setBreweryId(int breweryId) {
+        this.breweryId = breweryId;
     }
 
     @Override

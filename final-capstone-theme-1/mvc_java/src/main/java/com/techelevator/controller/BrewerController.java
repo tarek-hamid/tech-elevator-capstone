@@ -5,13 +5,17 @@ import com.techelevator.dao.BreweryDAO;
 import com.techelevator.dao.RatingDAO;
 import com.techelevator.entity.Beer;
 import com.techelevator.entity.Brewery;
+import com.techelevator.entity.Rating;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
@@ -33,22 +37,29 @@ public class BrewerController {
     }
 
     @RequestMapping(path="/addBeer", method= RequestMethod.GET)
-    public String displayAddBeerForm(HttpServletRequest request) {
-        int breweryId = Integer.parseInt(request.getParameter("breweryId"));
-        request.setAttribute("breweryId", breweryId);
+    public String displayAddBeerForm(HttpServletRequest request, ModelMap modelHolder) {
+        if (!modelHolder.containsAttribute("beer")){
+            Beer newBeer = new Beer(Integer.parseInt(request.getParameter("breweryId")));
+            modelHolder.put("beer", newBeer);
+        }
+//        int breweryId = Integer.parseInt(request.getParameter("breweryId"));
+//        request.setAttribute("breweryId", breweryId);
         return "user/addBeer";
     }
 
+
+
     @RequestMapping(path="/addBeer", method=RequestMethod.POST)
-    public String addBeer(@Valid @ModelAttribute Beer beer, BindingResult result, RedirectAttributes flash, HttpServletRequest request) {
-        int breweryId = Integer.parseInt(request.getParameter("breweryId"));
+    public String addBeer(@Valid @ModelAttribute Beer beer, BindingResult result, RedirectAttributes flash, ModelMap modelHolder) {
         if(result.hasErrors()) {
+            //model.put("breweryId", breweryId);
+            //flash.addAttribute("breweryId", breweryId);
             flash.addFlashAttribute("beer", beer);
             flash.addFlashAttribute(BindingResult.MODEL_KEY_PREFIX + "beer", result);
             return "redirect:/brewer/addBeer";
         }
         try {
-            beerDAO.addBeer(beer, (long)breweryId);
+            beerDAO.addBeer(beer);
         } catch (Exception exc){
             System.out.println(exc.getMessage());
             // good place to log

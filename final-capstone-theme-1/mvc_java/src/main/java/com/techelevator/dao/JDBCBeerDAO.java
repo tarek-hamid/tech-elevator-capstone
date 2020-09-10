@@ -22,11 +22,11 @@ public class JDBCBeerDAO implements BeerDAO{
 
 
     @Override
-    public void addBeer(Beer beer, Long breweryId) {
+    public void addBeer(Beer beer) {
         beer.setBeerId(getNextBeerId());
         jdbcTemplate.update("INSERT INTO beer(beer_id, name, description, abv, beer_type, brewery_id)" +
                         "VALUES (?, ?, ?, ?, ?, ?);",
-                beer.getBeerId(), beer.getName(), beer.getDescription(), beer.getAbv(), beer.getBeerType(), breweryId);
+                beer.getBeerId(), beer.getName(), beer.getDescription(), beer.getAbv(), beer.getBeerType(), beer.getBreweryId());
     }
 
 

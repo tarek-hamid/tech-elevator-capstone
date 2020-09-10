@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface BeerDAO {
 
-    public void addBeer(Beer beer, Long breweryId);
+    public void addBeer(Beer beer);
     public void deleteBeer(int beerId);
     public Beer getBeerByID(long beerID);
     public List<Beer> getBeerByBreweryId(int breweryId);
