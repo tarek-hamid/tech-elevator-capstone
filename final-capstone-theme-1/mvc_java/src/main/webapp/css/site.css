@@ -134,6 +134,11 @@ input:valid {
 .blue {
     color: #4e73df;
 }
+
+.bg-gradient-primary-1 {
+    background-color: orange;
+    background-size: cover;
+}
 /*
     End - Accordion Example Styles
  */
