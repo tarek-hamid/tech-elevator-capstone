@@ -60,28 +60,27 @@
                                     </li>
                                 </ul>
                             </div>
+                            <c:if test="${LOGGED_USER.getRole().equals(\"Brewer\")}">
+                                <div class="text-center">
+                                    <a href="/brewer/addBeer?breweryId=${brewery.breweryId}"   class="btn btn-light btn-icon-split">
+                                        <span class="icon text-gray-600">
+                                            <i class="fas fa-arrow-right"></i>
+                                        </span>
+                                        <span class="text">Add Beer</span>
+                                    </a>
+                                    <a class="btn btn-light btn-icon-split" href="/brewer/updateBrewery?breweryId=${brewery.breweryId}">
+                                            <span class="icon text-gray-600">
+                                                <i class="fas fa-fw fa-table"></i>
+                                            </span>
+                                        <span class="text">Update Brewery</span>
+                                    </a>
+                                </div>
+                            </c:if>
+                            <br>
                             <h3 class="text-center orange">
                                 Beers We Offer...
                             </h3>
                         </div>
-                        <br>
-                        <div>
-                            <c:if test="${LOGGED_USER.getRole().equals(\"Brewer\")}">
-                                <a href="/brewer/addBeer?breweryId=${brewery.breweryId}"   class="btn btn-light btn-icon-split">
-                                        <span class="icon text-gray-600">
-                                            <i class="fas fa-arrow-right"></i>
-                                        </span>
-                                    <span class="text">Add Beer</span>
-                                </a>
-                                <a class="btn btn-light btn-icon-split" href="/brewer/updateBrewery?breweryId=${brewery.breweryId}">
-                                            <span class="icon text-gray-600">
-                                                <i class="fas fa-fw fa-table"></i>
-                                            </span>
-                                    <span>Update Brewery</span>
-                                </a>
-                            </c:if>
-                        </div>
-                        <br>
                             <div class="container-fluid">
                                 <div class="row-2">
                                     <div class="col-md-4 col-md-4 col-md-4 col-md-4">

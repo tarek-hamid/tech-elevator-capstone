@@ -41,7 +41,7 @@
                                 </c:choose>
                             </li>
                             <li>
-                                <a class="black" href="dashboard/breweryDetails?id=${brewery.breweryId}">
+                                <a href="dashboard/breweryDetails?id=${brewery.breweryId}">
                                     <b>View more about this brewery</b>
                                 </a>
                             </li>
