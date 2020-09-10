@@ -116,6 +116,11 @@ input:valid {
 .logo{
     border-radius: 50%;
 }
+
+.rounded-circle{
+    max-width: 60%;
+    border-radius: 50%!important;
+}
 /*
     End - Accordion Example Styles
  */

@@ -38,9 +38,9 @@
 
 		<!-- Sidebar - Brand -->
 		<a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
-			<div class="sidebar-brand-icon logo">
-				<c:url var="logoImageUrl" value="/img/logo.png" />
-				<img src="${logoImageUrl}" />
+			<div class="sidebar-brand-icon">
+				<c:url var="logoImageUrl" value="/img/beerLogo2.jpg" />
+				<img class="rounded-circle" src="${logoImageUrl}" />
 			</div>
 			<div class="sidebar-brand-text mx-3">Ale-ments</div>
 		</a>
