@@ -24,7 +24,7 @@
                             <div class="p-5">
                                 <div class="text-center">
                                     <h1 class="display-3 orange beer-title-font">${brewery.name}</h1>
-                                </div>git
+                                </div>
                                     <c:choose>
                                         <c:when test="${brewery.active == true} ">
                                             <div class="text-md-center black">
