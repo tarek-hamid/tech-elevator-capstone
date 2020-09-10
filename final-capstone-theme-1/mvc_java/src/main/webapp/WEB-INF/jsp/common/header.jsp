@@ -39,7 +39,7 @@
 		<!-- Sidebar - Brand -->
 		<a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
 			<div class="sidebar-brand-icon">
-				<c:url var="logoImageUrl" value="/img/beerLogo2.jpg" />
+				<c:url var="logoImageUrl" value="/img/beerLogo3.png" />
 				<img class="rounded-circle" src="${logoImageUrl}" />
 			</div>
 			<div class="sidebar-brand-text mx-3">Ale-ments</div>
@@ -52,7 +52,7 @@
 		<a class="sidebar-brand d-flex align-items-center justify-content-center" href="/user/dashboard">
 			<div class="sidebar-brand-icon rotate-n-15">
 				<c:url var="dashboardImageUrl" value="/img/dashboard.png" />
-				<img src="${dashboardImageUrl}" />
+				<img class="brewery-dashboard-logo" src="${dashboardImageUrl}" />
 			</div>
 			<div class="sidebar-brand-text mx-3">Our Breweries</div>
 		</a>

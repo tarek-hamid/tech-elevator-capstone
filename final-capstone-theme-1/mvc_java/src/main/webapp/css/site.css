@@ -121,6 +121,11 @@ input:valid {
     max-width: 60%;
     border-radius: 50%!important;
 }
+
+.brewery-dashboard-logo{
+    max-width: 80%;
+    border-radius: 50%! important;
+}
 /*
     End - Accordion Example Styles
  */
