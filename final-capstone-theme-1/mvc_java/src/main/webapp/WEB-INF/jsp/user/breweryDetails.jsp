@@ -20,11 +20,11 @@
                         <!--<div class="col-lg-6 d-none d-lg-block bg-login-image"></div>-->
                         <br>
                         <br>
-                        <div class="text-center">
-                            <h1 class="display-3 orange beer-title-font">${brewery.name}</h1>
-                        </div>
                         <div class="col-lg-6">
                             <div class="p-5">
+                                <div class="text-center">
+                                    <h1 class="display-3 orange beer-title-font">${brewery.name}</h1>
+                                </div>git
                                     <c:choose>
                                         <c:when test="${brewery.active == true} ">
                                             <div class="text-md-center black">
