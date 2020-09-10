@@ -1,7 +1,10 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <c:import url="/WEB-INF/jsp/common/header.jsp" />
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <!-- Begin Page Content -->
 <div class="container">
@@ -18,65 +21,86 @@
                         <div class="col-lg-6">
                             <div class="p-5">
                                 <div class="text-center">
-                                    <h1 class="h4 text-gray-900 mb-4">${brewery.name}</h1>
+                                    <h1 class="display-3 orange beer-title-font">${brewery.name}</h1>
                                 </div>
-                                <ul>
                                     <c:choose>
                                         <c:when test="${brewery.active == true} ">
-                                            <li>
-                                                Active
-                                            </li>
+                                            <div class="text-md-center black">
+                                                <b>This Brewery Is Currently Active</b>
+                                            </div>
                                         </c:when>
                                         <c:otherwise>
-                                            <li>
-                                                Inactive
-                                            </li>
+                                            <div class="text-md-center black">
+                                                <b>This Brewery Is Currently Inactive</b>
+                                            </div>
                                         </c:otherwise>
                                     </c:choose>
-                                    <li>
-                                        History: ${brewery.history}
+                                <br>
+                                <ul class="list-group">
+                                    <li class="list-group-item">
+                                        <b>History: </b>${brewery.history}
                                     </li>
-                                    <li>
-                                        Open from: ${brewery.openFrom}
+                                    <li class="list-group-item">
+                                        <b>Open from: </b>${brewery.openFrom}
                                     </li>
-                                    <li>
-                                        Open to: ${brewery.openTo}
+                                    <li class="list-group-item">
+                                        <b>Open to: </b>${brewery.openTo}
                                     </li>
-                                    <li>
-                                        Phone number: ${brewery.phoneNumber}
+                                    <li class="list-group-item">
+                                        <b>Phone number:</b> ${brewery.phoneNumber}
                                     </li>
-                                    <li>
-                                        Website: ${brewery.website}
+                                    <li class="list-group-item">
+                                        <b>Website: </b>${brewery.website}
                                     </li>
-                                    <li>
-                                        Email: ${brewery.email}
+                                    <li class="list-group-item">
+                                        <b>Email: </b>${brewery.email}
                                     </li>
-                                    <li>
-                                        Address: ${brewery.address}
+                                    <li class="list-group-item">
+                                        <b>Address: </b>${brewery.address}
                                     </li>
-                                    <li>
-                                        Beer List:
-                                        <c:forEach items="${beers}" var="beer">
-                                            <a href="beerDetails?id=${beer.beerId}">
-                                                ${beer.name}
-                                            </a>
-                                        </c:forEach>
-                                    </li>
-                                    <c:if test="${LOGGED_USER.getRole().equals(\"Brewer\")}">
-                                    <a href="/brewer/addBeer?breweryId=${brewery.breweryId}"   class="btn btn-light btn-icon-split">
+                                </ul>
+                            </div>
+                            <h3 class="text-center orange">
+                                Beers We Offer...
+                            </h3>
+                        </div>
+                        <br>
+                        <div>
+                            <c:if test="${LOGGED_USER.getRole().equals(\"Brewer\")}">
+                                <a href="/brewer/addBeer?breweryId=${brewery.breweryId}"   class="btn btn-light btn-icon-split">
                                         <span class="icon text-gray-600">
                                             <i class="fas fa-arrow-right"></i>
                                         </span>
-                                        <span class="text">Add Beer</span>
-                                    </a>
-                                        <a class="btn btn-light btn-icon-split" href="/brewer/updateBrewery?breweryId=${brewery.breweryId}">
+                                    <span class="text">Add Beer</span>
+                                </a>
+                                <a class="btn btn-light btn-icon-split" href="/brewer/updateBrewery?breweryId=${brewery.breweryId}">
                                             <span class="icon text-gray-600">
                                                 <i class="fas fa-fw fa-table"></i>
                                             </span>
-                                            <span>Update Brewery</span>
-                                        </a>
-                                    </c:if>
-                                </ul>
+                                    <span>Update Brewery</span>
+                                </a>
+                            </c:if>
+                        </div>
+                        <br>
+                            <div class="container-fluid">
+                                <div class="row-2">
+                                    <div class="col-md-4 col-md-4 col-md-4 col-md-4">
+                                        <div class="card shadow mb-4">
+                                            <div class="card-header py-3">
+                                                <h6 class="m-0 font-weight-bold text-primary text-center">
+                                                    <c:forEach items="${beers}" var="beer">
+                                                        <a href="beerDetails?id=${beer.beerId}">
+                                                                ${beer.name}
+                                                        </a>
+                                                    </c:forEach>
+                                                </h6>
+                                            </div>
+                                            <div class="card-body text-center">
+                                                ${beer.description}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
