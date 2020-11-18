@@ -1,0 +1,8 @@
+# pack-refs with: peeled fully-peeled sorted 
+08b1c2edd1446e7ed8e2bac5aed7a3eb2a82add9 refs/heads/breweryTable
+ba4290508600488e208b3c1d5c0b7c7d8a884ab8 refs/heads/feature/addBeer
+102c15cb71c99df4233b06b4bb9e0370934ae9a6 refs/heads/feature/authentication
+8e81b8fac9dda107c25951867978016a6775cb9c refs/heads/feature/brewerySearch
+08b406d77fa75b69d31bbc9b77393cea4baf864e refs/heads/feature/dashboardDisplay
+3e757451cd76ab79d043fa409e4016569359ecab refs/heads/master
+b703607a0409f65bdd15f686acdb6a429746c449 refs/heads/revert-pr-3
